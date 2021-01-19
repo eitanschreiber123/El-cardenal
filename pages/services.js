@@ -9,17 +9,29 @@ import { BsCreditCard } from 'react-icons/bs';
 import { FaWifi } from 'react-icons/fa';
 import { IoRestaurant } from 'react-icons/io';
 import { FaDesktop } from 'react-icons/fa';
-import { FaMusic } from 'react-icons/fa';
 import { MdEventNote } from 'react-icons/md';
 import { MdLocalLaundryService } from 'react-icons/md';
 import { GiCoffeePot } from 'react-icons/gi'
 import { GiMirrorMirror } from 'react-icons/gi'
+import { IoAirplane } from 'react-icons/io'
+import { BsFillPeopleFill } from 'react-icons/bs'
 const Wrapper = styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}
 main>section>div:first-of-type {
   display: grid;
-  grid-template-columns: repeat(4, 200px);
+  grid-template-columns: repeat(5, 100px);
 }
-`
+main>section>div:first-of-type>div {
+  display: flex;
+  flex-direction: column;
+}
+main>section>div:last-of-type {
+  display: flex;
+  flex-direction: column;
+}
+main>section>div:last-of-type>div{
+  display: flex;
+  flex-direction: row;
+}`
 class ServicesPage extends Component {
   constructor(props) {
     super(props);
@@ -35,61 +47,53 @@ class ServicesPage extends Component {
             <h1>Services</h1>
             <div>
               <div>
-                //image
-                <p></p>
+                <FaWifi style={{width: `100px`, height: `100px`}}/>
+                <p>Wifi</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <BsCreditCard style={{width: `100px`, height: `100px`}}/>
+                <p>Tarjeta de credito</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <IoRestaurant style={{width: `100px`, height: `100px`}}/>
+                <p>Restaurante</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <FaDesktop style={{width: `100px`, height: `100px`}}/>
+                <p>Tv-cable</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <MdEventNote style={{width: `100px`, height: `100px`}}/>
+                <p>Eventos</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <div style={{height: `100px`, width: `100px`, background: `center / cover no-repeat url(/services/outdoor.jpg)`}}></div>
+                <p>Jardin / Terraza</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <MdLocalLaundryService style={{width: `100px`, height: `100px`}}/>
+                <p>Lavanderia</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <BsFillPeopleFill style={{width: `100px`, height: `100px`}}/>
+                <p>Salas deReuniones</p>
               </div>
               <div>
-                //image
-                <p></p>
+                <GiCoffeePot style={{width: `100px`, height: `100px`}}/>
+                <p>Taberna / Cafeteria</p>
               </div>
               <div>
-                //image
-                <p></p>
-              </div>
-              <div>
-                //image
-                <p></p>
-              </div>
-              <div>
-                //image
-                <p></p>
+                <GiMirrorMirror style={{width: `100px`, height: `100px`}}/>
+                <p>Espejo de Maquillaje</p>
               </div>
             </div>
-            <div>
-              //image
+            <div className="airplane">
+              <h1>Pick up from airport</h1>
               <div>
-                <h1>Pick up from airport</h1>
-                <p></p>
+                <IoAirplane style={{width: `200px`, height: `200px`}}/>
+                <p>We can go to the airport to pick you up and take you to the hotel at no extra charge</p>
               </div>
-          </div>
+            </div>
         </section>
         </main>
         <OtherFooter/>
