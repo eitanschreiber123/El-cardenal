@@ -182,7 +182,9 @@ class ReservePage extends Component {
               secondMonth.locale(`es`)
               moment().locale(`es`)
               return {firstMonth, secondMonth, lang: `es`}
-            })}}
+            })}
+            console.log(moment().locale());
+          }
   render() {
     const { rooms, date, em } = this.state
     return (<Wrapper>
