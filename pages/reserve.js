@@ -216,7 +216,7 @@ class ReservePage extends Component {
                     {this.state.firstShow ? <p>{this.state.firstSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") || test.format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
+                        <div className="month-display row">{(moment().format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") || test.format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY")) ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
                         <div className="row day-names">
                             <span className="day">{this.props.t("day_1")}</span>
                             <span className="day">{this.props.t("day_2")}</span>
