@@ -7,31 +7,15 @@ import OtherFooter from '../components/otherFooter'
 import { i18n, withTranslation } from '../i18n'
 import { BsCreditCard } from 'react-icons/bs';
 import { FaWifi } from 'react-icons/fa';
-import { IoRestaurant } from 'react-icons/io';
+import { BiRestaurant } from 'react-icons/bi';
 import { FaDesktop } from 'react-icons/fa';
 import { MdEventNote } from 'react-icons/md';
 import { MdLocalLaundryService } from 'react-icons/md';
 import { GiCoffeePot } from 'react-icons/gi'
 import { GiMirrorMirror } from 'react-icons/gi'
-import { IoAirplane } from 'react-icons/io'
+import { ImAirplane } from 'react-icons/im'
 import { BsFillPeopleFill } from 'react-icons/bs'
-const Wrapper = styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}
-main>section>div:first-of-type {
-  display: grid;
-  grid-template-columns: repeat(5, 100px);
-}
-main>section>div:first-of-type>div {
-  display: flex;
-  flex-direction: column;
-}
-main>section>div:last-of-type {
-  display: flex;
-  flex-direction: column;
-}
-main>section>div:last-of-type>div{
-  display: flex;
-  flex-direction: row;
-}`
+const Wrapper = styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}main>section>div:first-of-type{display:grid;grid-template-columns:repeat(5, 100px);grid-gap:30px 25px;}main>section>div:first-of-type>div{display:flex;flex-direction:column;}main>section>div:last-of-type{display:flex;flex-direction:column;margin-bottom:90px;}main>section>div:last-of-type>div{display:flex;flex-direction:row;}main>section>div:last-of-type>div>p{margin-right:50px;}h1{color:rgb(97,26,30);}`
 class ServicesPage extends Component {
   constructor(props) {
     super(props);
@@ -55,7 +39,7 @@ class ServicesPage extends Component {
                 <p>Tarjeta de credito</p>
               </div>
               <div>
-                <IoRestaurant style={{width: `100px`, height: `100px`}}/>
+                <BiRestaurant style={{width: `100px`, height: `100px`}}/>
                 <p>Restaurante</p>
               </div>
               <div>
@@ -90,8 +74,8 @@ class ServicesPage extends Component {
             <div className="airplane">
               <h1>Pick up from airport</h1>
               <div>
-                <IoAirplane style={{width: `200px`, height: `200px`}}/>
                 <p>We can go to the airport to pick you up and take you to the hotel at no extra charge</p>
+                <ImAirplane style={{width: `150px`, height: `150px`}}/>
               </div>
             </div>
         </section>
