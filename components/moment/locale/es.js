@@ -1,3 +1,4 @@
+import moment from 'moment';
 var monthsShortDot = 'ene._feb._mar._abr._may._jun._jul._ago._sep._oct._nov._dic.'.split(
         '_'
     ),
