@@ -11,7 +11,7 @@ import { GoArrowLeft } from 'react-icons/go';
 import { GoArrowRight } from 'react-icons/go';
 import { i18n, withTranslation } from '../i18n'
 import axios from 'axios';
-import '../moment/locale/es.js';
+import '../components/moment/locale/es.js';
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.top_list{display:grid;grid-template-columns:repeat(3, 240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;
     header {
         .vertical-center;
