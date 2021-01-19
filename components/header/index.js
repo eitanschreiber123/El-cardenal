@@ -9,11 +9,11 @@ class Header extends Component {
     super(props);
     this.state = {active:`en`}}
   static async getInitialProps(ctx) {
-  return {namespacesRequired: ['header']}
+  return {namespacesRequired: ['header'], func}
 }
 changeLang = n => {
   this.setState({active: n});
-  i18n.changeLanguage(n);
+  this.props.func
 }
   render() {
     return (<Wrapper>

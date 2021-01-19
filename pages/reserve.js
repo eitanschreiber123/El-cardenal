@@ -11,6 +11,7 @@ import { GoArrowLeft } from 'react-icons/go';
 import { GoArrowRight } from 'react-icons/go';
 import { i18n, withTranslation } from '../i18n'
 import axios from 'axios';
+import '../moment/locale/es.js';
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.top_list{display:grid;grid-template-columns:repeat(3, 240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;
     header {
         .vertical-center;
@@ -103,7 +104,7 @@ class ReservePage extends Component {
       const senderMail = `eitanschreiber97@gmail.com`
         const res = await sendContactMail(senderMail, this.state.em, which.filter((w, ind) => this.state.rooms[ind]), [this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")], this.state.payment, this.state.price, [this.state.adults,this.state.children])
         if (res.status < 300) {
-          this.setState({rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
+          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
         }
       }
       firstPrevious = () => {
@@ -172,23 +173,32 @@ class ReservePage extends Component {
         const {
           firstMonth,
         } = this.state;
+        firstMonth.locale(this.state.lang)
         return firstMonth.format("MMMM YYYY");
       }
       renderSecondMonthLabel() {
         const {
           secondMonth,
         } = this.state;
+        secondMonth.locale(this.state.lang)
         return secondMonth.format("MMMM YYYY");
       }
       calculatePrice = (s, e) => {
         const people = (20 + (this.state.adults - 1) * 10) + (this.state.children * 5);
         this.setState({price:((e - s) / (1000 * 3600 * 24)) * people})
       }
-      test = () => console.log(`eitan`);
+      changeEverything = () => {
+        i18n.changeLanguage(n);
+        () => {
+          if (this.state.lang == `en`) {
+            this.setState({lang: `es`})
+          } else {
+            this.setState({lang: `en`})
+          }}}
   render() {
     const { rooms, date, em } = this.state
     return (<Wrapper>
-        <Header/>
+        <Header func={this.changeEverything}/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>How many people</h1>
