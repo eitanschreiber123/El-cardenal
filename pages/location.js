@@ -20,9 +20,7 @@ class LocationPage extends Component {
           <section>
             <h1>Location</h1>
             <div>
-              <div style={{background:`center / cover no-repeat url(/location/first.jpg)`}}>
-                <p>Puerta de la ciudad</p>
-              </div>
+              <div style={{background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
               <div style={{background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
               <div style={{background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
             </div>
