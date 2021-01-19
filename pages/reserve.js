@@ -165,7 +165,7 @@ class ReservePage extends Component {
         this.setState({price:((e - s) / (1000 * 3600 * 24)) * people})
       }
       changeEverything = () => {
-          if (moment().locale() == `en`) {
+          if (this.state.lang == `en`) {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
