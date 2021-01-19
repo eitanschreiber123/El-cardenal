@@ -5,7 +5,14 @@ import styled from 'styled-components'
 import Header from '../components/header'
 import OtherFooter from '../components/otherFooter'
 import { i18n, withTranslation } from '../i18n'
-const Wrapper=styled.div`font-family:Playfair Display;main>div:first-of-type{display:flex;flex-direction:column;align-items:center;margin-bottom:50px;}main>div:last-of-type>div{display:grid;grid-template-columns:repeat(4, 235px);}main>div:last-of-type{display:flex;flex-direction:column;align-items:center;}button{width:261px;height:40px;background-color:white;border:1px solid black;}button:hover{background-color:rgb(97, 26, 30);border:1px solid white;}a{color:black;}main>div:last-of-type>div p,main>div:last-of-type>div h1{font-size:14px;font-weight:400;}`
+const Wrapper=styled.div`font-family:Playfair Display;
+main>div:first-of-type{display:flex;flex-direction:column;align-items:center;margin-bottom:50px;}
+main>div:last-of-type>div:last-of-type{display:grid;grid-template-columns:repeat(4, 235px);}
+main>div:last-of-type{display:flex;flex-direction:column;align-items:center;}
+button{width:261px;height:40px;background-color:white;border:1px solid black;}
+button:hover{background-color:rgb(97, 26, 30);border:1px solid white;}
+a{color:black;}
+main>div:last-of-type>div p,main>div:last-of-type>div h1{font-size:14px;font-weight:400;}`
 class HomePage extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +30,10 @@ class HomePage extends Component {
             <Link href="/rooms"><a><button>{this.props.t("button")}</button></a></Link>
           </div>
           <div>
+          <div style={{display: `flex`,flexDirection:`row`,width:`100%`,justifyContent:`space-evenly`}}>
+            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_1.png)`}}></div>
+            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_2.jpg)`}}></div>
+          </div>
           <h1 style={{color:`white`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_3")}</h1>
           <div>
             <div style={{width:`235px`,height:`276px`,background:`center / cover no-repeat url(/home/table.png)`}}></div>

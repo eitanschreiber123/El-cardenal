@@ -71,6 +71,11 @@ class ServicesPage extends Component {
                 <p>Espejo de Maquillaje</p>
               </div>
             </div>
+            <div style={{display: `flex`,flexDirection:`row`}}>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/services/food_1.jpg)`,margin:`0 50px`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/services/food_2.jpg)`,margin:`0 50px`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/services/food_3.jpg)`,margin:`0 50px`}}></div>
+            </div>
             <div className="airplane">
               <h1>Pick up from airport</h1>
               <div>
