@@ -169,9 +169,9 @@ class ReservePage extends Component {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
-              moment().locale(`en`)
               firstMonth.locale(`en`)
               secondMonth.locale(`en`)
+              moment().locale(`en`)
               return {firstMonth, secondMonth, lang: `en`}
             })
           } else {
@@ -183,7 +183,7 @@ class ReservePage extends Component {
               moment().locale(`es`)
               return {firstMonth, secondMonth, lang: `es`}
             })}
-            console.log(moment().locale());
+            console.log([moment().locale(), this.state.lang]);
           }
   render() {
     const { rooms, date, em } = this.state
