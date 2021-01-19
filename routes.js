@@ -1,6 +1,9 @@
 const nextRoutes = require('next-routes')
 const routes = module.exports = nextRoutes()
-
 routes.add('index', '/')
-routes.add('about', '/about')
-routes.add('post', '/blog/:slug')
+routes.add('contact', '/contact')
+routes.add('events', '/events')
+routes.add('rooms', '/rooms')
+routes.add('reserve', '/reserve')
+routes.add('location', '/location')
+routes.add('services', '/services')

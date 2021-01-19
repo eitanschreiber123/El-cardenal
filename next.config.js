@@ -1,17 +1,15 @@
 const path = require('path')
-
-module.exports = {
-  webpack: (config, { dev }) => {
-    // Perform customizations to webpack config
-
-    // Important: return the modified config
-    // config.resolve.modules = [path.resolve(__dirname, "components"), "node_modules"]
+const withImages = require('next-images')
+const { nextI18NextRewrites } = require('next-i18next/rewrites')
+const localeSubpaths = {}
+module.exports = withImages({
+  rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  publicRuntimeConfig: {
+    localeSubpaths,
+  },
+  webpack: (config ) => {
     return config
   },
   webpackDevMiddleware: (config) => {
-    // Perform customizations to webpack dev middleware config
-
-    // Important: return the modified config
     return config
-  }
-}
+  }})
