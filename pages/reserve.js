@@ -76,9 +76,12 @@ const which = [201, 202, 301, 302, 303, 304];
 class ReservePage extends Component {
   constructor(props) {
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:moment().locale(`en`),secondMonth:moment().locale(`en`),firstSelected:moment().locale(`en`).startOf('day'),firstShow:false,secondSelected:moment().locale(`en`).startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:moment(),secondMonth:moment(),firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
   static async getInitialProps(ctx){
     return {namespacesRequired: ['common', 'header']}
+  }
+  componentDidMount() {
+    moment().locale(`en`)
   }
   selectRoom = n => {
     const y = n
@@ -92,7 +95,7 @@ class ReservePage extends Component {
       const senderMail = `eitanschreiber97@gmail.com`
         const res = await sendContactMail(senderMail, this.state.em, which.filter((w, ind) => this.state.rooms[ind]), [this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")], this.state.payment, this.state.price, [this.state.adults,this.state.children])
         if (res.status < 300) {
-          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().locale(`en`).startOf('day'),firstShow:false,secondSelected:moment().locale(`en`).startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment().locale(`en`),secondMonth:moment().locale(`en`)})
+          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
         }
       }
       firstPrevious = () => {
@@ -162,10 +165,11 @@ class ReservePage extends Component {
         this.setState({price:((e - s) / (1000 * 3600 * 24)) * people})
       }
       changeEverything = () => {
-          if (this.state.lang == `es`) {
+          if (moment().locale() == `en`) {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
+              moment().locale(`es`)
               firstMonth.locale(`es`)
               secondMonth.locale(`es`)
               return {firstMonth, secondMonth, lang: `es`}
@@ -176,6 +180,7 @@ class ReservePage extends Component {
               const secondMonth = prev.secondMonth
               firstMonth.locale(`en`)
               secondMonth.locale(`en`)
+              moment().locale(`en`)
               return {firstMonth, secondMonth, lang: `en`}
             })}}
   render() {
