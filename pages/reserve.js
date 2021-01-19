@@ -30,18 +30,6 @@ const Wrapper=styled.div`font-family:Playfair Display;main>section{background-co
         cursor: pointer;
         transition: all .2s;
         &:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97, 26, 30);color:#FFFFFF;}&.before{background:grey !important;color:#FFFFFF !important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}`
-class DayNames extends Component {
-    render() {
-        return (<div className="row day-names">
-            <span className="day">{this.props.t("day_1")}</span>
-            <span className="day">{this.props.t("day_2")}</span>
-            <span className="day">{this.props.t("day_3")}</span>
-            <span className="day">{this.props.t("day_4")}</span>
-            <span className="day">{this.props.t("day_5")}</span>
-            <span className="day">{this.props.t("day_6")}</span>
-            <span className="day">{this.props.t("day_7")}</span>
-          </div>);
-    }}
 class Week extends Component {
   render() {
     let days = [];
@@ -88,7 +76,7 @@ const which = [201, 202, 301, 302, 303, 304];
 class ReservePage extends Component {
   constructor(props) {
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:moment(),secondMonth:moment(),firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:moment().locale(`en`),secondMonth:moment().locale(`en`),firstSelected:moment().locale(`en`).startOf('day'),firstShow:false,secondSelected:moment().locale(`en`).startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
   static async getInitialProps(ctx){
     return {namespacesRequired: ['common', 'header']}
   }
@@ -104,7 +92,7 @@ class ReservePage extends Component {
       const senderMail = `eitanschreiber97@gmail.com`
         const res = await sendContactMail(senderMail, this.state.em, which.filter((w, ind) => this.state.rooms[ind]), [this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")], this.state.payment, this.state.price, [this.state.adults,this.state.children])
         if (res.status < 300) {
-          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
+          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().locale(`en`).startOf('day'),firstShow:false,secondSelected:moment().locale(`en`).startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment().locale(`en`),secondMonth:moment().locale(`en`)})
         }
       }
       firstPrevious = () => {
@@ -169,32 +157,27 @@ class ReservePage extends Component {
         }
         return weeks;
       };
-      renderFirstMonthLabel() {
-        const {
-          firstMonth,
-        } = this.state;
-        firstMonth.locale(this.state.lang)
-        return firstMonth.format("MMMM YYYY");
-      }
-      renderSecondMonthLabel() {
-        const {
-          secondMonth,
-        } = this.state;
-        secondMonth.locale(this.state.lang)
-        return secondMonth.format("MMMM YYYY");
-      }
       calculatePrice = (s, e) => {
         const people = (20 + (this.state.adults - 1) * 10) + (this.state.children * 5);
         this.setState({price:((e - s) / (1000 * 3600 * 24)) * people})
       }
       changeEverything = () => {
-        i18n.changeLanguage(n);
-        () => {
-          if (this.state.lang == `en`) {
-            this.setState({lang: `es`})
+          if (this.state.lang == `es`) {
+            this.setState(prev => {
+              const firstMonth = prev.firstMonth
+              const secondMonth = prev.secondMonth
+              firstMonth.locale(`es`)
+              secondMonth.locale(`es`)
+              return {firstMonth, secondMonth, lang: `es`}
+            })
           } else {
-            this.setState({lang: `en`})
-          }}}
+            this.setState(prev => {
+              const firstMonth = prev.firstMonth
+              const secondMonth = prev.secondMonth
+              firstMonth.locale(`en`)
+              secondMonth.locale(`en`)
+              return {firstMonth, secondMonth, lang: `en`}
+            })}}
   render() {
     const { rooms, date, em } = this.state
     return (<Wrapper>
@@ -228,8 +211,16 @@ class ReservePage extends Component {
                     {this.state.firstShow ? <p>{this.state.firstSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{moment().format("MMMM YYYY") != this.renderFirstMonthLabel() ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.renderFirstMonthLabel()}</span><GoArrowRight onClick={this.firstNext}/></div>
-                        <DayNames />
+                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
+                        <div className="row day-names">
+                            <span className="day">{this.props.t("day_1")}</span>
+                            <span className="day">{this.props.t("day_2")}</span>
+                            <span className="day">{this.props.t("day_3")}</span>
+                            <span className="day">{this.props.t("day_4")}</span>
+                            <span className="day">{this.props.t("day_5")}</span>
+                            <span className="day">{this.props.t("day_6")}</span>
+                            <span className="day">{this.props.t("day_7")}</span>
+                          </div>
                       </header>
                       {this.renderFirstWeeks()}
                     </section>
@@ -241,8 +232,16 @@ class ReservePage extends Component {
                     {this.state.secondShow ? <p>{this.state.secondSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{moment().format("MMMM YYYY") != this.renderSecondMonthLabel() ? <GoArrowLeft onClick={this.secondPrevious}/> : null}<span className="month-label">{this.renderSecondMonthLabel()}</span><GoArrowRight onClick={this.secondNext}/></div>
-                        <DayNames />
+                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.secondMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.secondPrevious}/> : null}<span className="month-label">{this.state.secondMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.secondNext}/></div>
+                        <div className="row day-names">
+                            <span className="day">{this.props.t("day_1")}</span>
+                            <span className="day">{this.props.t("day_2")}</span>
+                            <span className="day">{this.props.t("day_3")}</span>
+                            <span className="day">{this.props.t("day_4")}</span>
+                            <span className="day">{this.props.t("day_5")}</span>
+                            <span className="day">{this.props.t("day_6")}</span>
+                            <span className="day">{this.props.t("day_7")}</span>
+                          </div>
                       </header>
                       {this.renderSecondWeeks()}
                     </section>

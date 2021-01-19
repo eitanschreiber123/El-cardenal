@@ -13,7 +13,8 @@ class Header extends Component {
 }
 changeLang = n => {
   this.setState({active: n});
-  this.props.func
+  i18n.changeLanguage(n);
+  this.props.func()
 }
   render() {
     return (<Wrapper>
