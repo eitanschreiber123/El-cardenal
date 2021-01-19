@@ -18,7 +18,7 @@ class LocationPage extends Component {
         <Header/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
-            <h1>Location</h1>
+            <h1>{this.props.t("location")}</h1>
             <div>
               <div style={{background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
               <div style={{background:`center / cover no-repeat url(/location/second.jpg)`}}></div>

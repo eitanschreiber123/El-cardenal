@@ -26,8 +26,8 @@ class RoomsPage extends Component {
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <div className="top">
-              <h1>Rooms</h1>
-              <Link href="/reserve"><a>Reserve now</a></Link>
+              <h1>{this.props.t("rooms_1")}</h1>
+              <Link href="/reserve"><a>{this.props.t("rooms_2")}</a></Link>
             </div>
             <div className="list">
               {Rooms.map((r,ind)=>{return<Link href="/eachRoom/[id]"as={`/eachRoom/${ind}`}><a><div className="each">
@@ -35,8 +35,8 @@ class RoomsPage extends Component {
                 <div className="middle">
                   <h1 style={{margin: 0,lineHeight: 1}}>{r.number}</h1>
                   <ul>
-                    <li>size: {r.size}<sup>2</sup></li>
-                    <li>beds:</li>
+                    <li>{this.props.t("rooms_3")}: {r.size}<sup>2</sup></li>
+                    <li>{this.props.t("rooms_4")}:</li>
                       <ul>{Object.entries(r.beds).map(b=><li>{b[0]}: {b[1]}</li>)}</ul>
                   </ul>
                   <hr style={{width:`100%`}}/>
@@ -49,7 +49,7 @@ class RoomsPage extends Component {
                     <BiCloset style={{color:`black`,width:`25px`,height:`25px`}}/>
                   </div>
                 </div>
-                <button>More</button>
+                <button>{this.props.t("rooms_5")}</button>
                 </div></a></Link>})}
             </div>
           </section>

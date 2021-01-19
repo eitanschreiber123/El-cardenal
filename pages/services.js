@@ -28,7 +28,7 @@ class ServicesPage extends Component {
         <Header/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
-            <h1>Services</h1>
+            <h1>{this.props.t("services_1")}</h1>
             <div>
               <div>
                 <FaWifi style={{width: `100px`, height: `100px`}}/>
@@ -36,11 +36,11 @@ class ServicesPage extends Component {
               </div>
               <div>
                 <BsCreditCard style={{width: `100px`, height: `100px`}}/>
-                <p>Tarjeta de credito</p>
+                <p>{this.props.t("services_2")}</p>
               </div>
               <div>
                 <BiRestaurant style={{width: `100px`, height: `100px`}}/>
-                <p>Restaurante</p>
+                <p>{this.props.t("services_3")}</p>
               </div>
               <div>
                 <FaDesktop style={{width: `100px`, height: `100px`}}/>
@@ -48,27 +48,27 @@ class ServicesPage extends Component {
               </div>
               <div>
                 <MdEventNote style={{width: `100px`, height: `100px`}}/>
-                <p>Eventos</p>
+                <p>{this.props.t("services_4")}</p>
               </div>
               <div>
                 <div style={{height: `100px`, width: `100px`, background: `center / cover no-repeat url(/services/outdoor.jpg)`}}></div>
-                <p>Jardin / Terraza</p>
+                <p>{this.props.t("services_5")}</p>
               </div>
               <div>
                 <MdLocalLaundryService style={{width: `100px`, height: `100px`}}/>
-                <p>Lavanderia</p>
+                <p>{this.props.t("services_6")}</p>
               </div>
               <div>
                 <BsFillPeopleFill style={{width: `100px`, height: `100px`}}/>
-                <p>Salas deReuniones</p>
+                <p>{this.props.t("services_7")}</p>
               </div>
               <div>
                 <GiCoffeePot style={{width: `100px`, height: `100px`}}/>
-                <p>Taberna / Cafeteria</p>
+                <p>{this.props.t("services_8")}</p>
               </div>
               <div>
                 <GiMirrorMirror style={{width: `100px`, height: `100px`}}/>
-                <p>Espejo de Maquillaje</p>
+                <p>{this.props.t("services_9")}</p>
               </div>
             </div>
             <div style={{display: `flex`,flexDirection:`row`}}>
@@ -77,9 +77,9 @@ class ServicesPage extends Component {
               <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/services/food_3.jpg)`,margin:`0 50px`}}></div>
             </div>
             <div className="airplane">
-              <h1>Pick up from airport</h1>
+              <h1>{this.props.t("services_10")}</h1>
               <div>
-                <p>We can go to the airport to pick you up and take you to the hotel at no extra charge</p>
+                <p>{this.props.t("services_11")}</p>
                 <ImAirplane style={{width: `150px`, height: `150px`}}/>
               </div>
             </div>

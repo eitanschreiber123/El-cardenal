@@ -30,8 +30,8 @@ class EachPage extends Component {
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
           <div className="top">
-            <h1>Rooms</h1>
-            <Link href="/reserve"><a>Reserve now</a></Link>
+            <h1>{this.props.t("rooms_1")}</h1>
+            <Link href="/reserve"><a>{this.props.t("rooms_2")}</a></Link>
           </div>
             <div>
             <div style={{display:`flex`,flexDirection:`row`,alignItems:`flex-end`,marginBottom:`20px`}}><Link href="/rooms"><a style={{marginRight:`10px`}}><AiOutlineArrowLeft style={{color:`black`,width:`25px`,height:`25px`}}/></a></Link><h1 style={{margin:0,lineHeight:1}}>{this.props.r.number}</h1></div>
@@ -40,9 +40,9 @@ class EachPage extends Component {
               <div>{[`/rooms/${this.props.r.number}/small_1.jpg`],[`/rooms/${this.props.r.number}/small_2.jpg`],[`/rooms/${this.props.r.number}/small_3.jpg`].map((i,ind)=>{return<div onClick={()=>this.changeImage(`big_${ind + 1}`)}style={{width:`58px`,height:`48px`,background:`center / cover no-repeat url(${i})`}}></div>})}</div>
             </div>
             <div className="info_1">
-              <div><p>size: {this.props.r.size}<sup>2</sup></p></div>
+              <div><p>{this.props.t("rooms_3")}: {this.props.r.size}<sup>2</sup></p></div>
               <div>
-                <p>beds:</p>
+                <p>{this.props.t("rooms_4")}:</p>
                   <ul>{Object.entries(this.props.r.beds).map(b=><li>{b[0]}: {b[1]}</li>)}</ul>
               </div>
             </div>
@@ -58,25 +58,25 @@ class EachPage extends Component {
               </div>
               <div>
                 <FaShower style={{color:`black`,width:`25px`,height:`25px`,marginRight:`10px`}}/>
-                <p>Shower</p>
+                <p>{this.props.t("each_1")}</p>
               </div>
               <div>
                 <FaPhone style={{color:`black`,width:`25px`,height:`25px`,marginRight:`10px`}}/>
-                <p>Phone</p>
+                <p>{this.props.t("each_2")}</p>
               </div>
               <div>
                 <GiDesk style={{color:`black`,width:`25px`,height:`25px`,marginRight:`10px`}}/>
-                <p>Work Space</p>
+                <p>{this.props.t("each_3")}</p>
               </div>
               <div>
                 <BiCloset style={{color:`black`,width:`25px`,height:`25px`,marginRight:`10px`}}/>
-                <p>Towells</p>
+                <p>{this.props.t("each_4")}</p>
               </div>
             </div>
             <hr style={{width:`100%`}}/>
             <div className="info_3">
-              <p>Entrada: 02:00 PM</p>
-              <p>Salida: 11:00 AM</p>
+              <p>{this.props.t("each_5")}: 02:00 PM</p>
+              <p>{this.props.t("each_6")}: 11:00 AM</p>
             </div>
             </div>
           </section>
