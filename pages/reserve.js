@@ -169,19 +169,19 @@ class ReservePage extends Component {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
-              moment().locale(`es`)
-              firstMonth.locale(`es`)
-              secondMonth.locale(`es`)
-              return {firstMonth, secondMonth, lang: `es`}
+              moment().locale(`en`)
+              firstMonth.locale(`en`)
+              secondMonth.locale(`en`)
+              return {firstMonth, secondMonth, lang: `en`}
             })
           } else {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
-              firstMonth.locale(`en`)
-              secondMonth.locale(`en`)
-              moment().locale(`en`)
-              return {firstMonth, secondMonth, lang: `en`}
+              firstMonth.locale(`es`)
+              secondMonth.locale(`es`)
+              moment().locale(`es`)
+              return {firstMonth, secondMonth, lang: `es`}
             })}}
   render() {
     const { rooms, date, em } = this.state
