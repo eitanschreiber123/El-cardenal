@@ -216,14 +216,11 @@ class ReservePage extends Component {
                     {this.state.firstShow ? <p>{this.state.firstSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{
-                          (()=> {
-        switch (this.state.firstMonth.format("MMMM YYYY")) {
+                        <div className="month-display row">{(()=> {switch (this.state.firstMonth.format("MMMM YYYY")) {
           case moment().format("MMMM YYYY"): return null;
           case test.format("MMMM YYYY"): return null;
           default: <GoArrowLeft onClick={this.firstPrevious}/>;
-        }
-      })()
+        }})()
                         }<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
                         <div className="row day-names">
                             <span className="day">{this.props.t("day_1")}</span>
@@ -245,7 +242,12 @@ class ReservePage extends Component {
                     {this.state.secondShow ? <p>{this.state.secondSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.secondMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.secondPrevious}/> : null}<span className="month-label">{this.state.secondMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.secondNext}/></div>
+                        <div className="month-display row">{(()=> {switch (this.state.secondMonth.format("MMMM YYYY")) {
+          case moment().format("MMMM YYYY"): return null;
+          case test.format("MMMM YYYY"): return null;
+          default: <GoArrowLeft onClick={this.secondPrevious}/>;
+        }})()
+                        }<span className="month-label">{this.state.secondMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.secondNext}/></div>
                         <div className="row day-names">
                             <span className="day">{this.props.t("day_1")}</span>
                             <span className="day">{this.props.t("day_2")}</span>
