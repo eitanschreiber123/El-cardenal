@@ -96,8 +96,7 @@ class ReservePage extends Component {
         const res = await sendContactMail(senderMail, this.state.em, which.filter((w, ind) => this.state.rooms[ind]), [this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")], this.state.payment, this.state.price, [this.state.adults,this.state.children])
         if (res.status < 300) {
           this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
-        }
-      }
+        }}
       firstPrevious = () => {
         const {
           firstMonth,
@@ -173,8 +172,7 @@ class ReservePage extends Component {
               secondMonth.locale(`en`)
               moment().locale(`en`)
               return {firstMonth, secondMonth, lang: `en`}
-            })
-          } else {
+            })} else {
             this.setState(prev => {
               const firstMonth = prev.firstMonth
               const secondMonth = prev.secondMonth
@@ -182,11 +180,11 @@ class ReservePage extends Component {
               secondMonth.locale(`es`)
               moment().locale(`es`)
               return {firstMonth, secondMonth, lang: `es`}
-            })}
-            console.log([moment().locale(), this.state.lang]);
-          }
+            })}}
   render() {
     const { rooms, date, em } = this.state
+    const test = moment()
+    test.locale(`en`)
     return (<Wrapper>
         <Header func={this.changeEverything}/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
@@ -218,7 +216,7 @@ class ReservePage extends Component {
                     {this.state.firstShow ? <p>{this.state.firstSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
+                        <div className="month-display row">{moment().format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") || test.format("MMMM YYYY") != this.state.firstMonth.format("MMMM YYYY") ? <GoArrowLeft onClick={this.firstPrevious}/> : null}<span className="month-label">{this.state.firstMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.firstNext}/></div>
                         <div className="row day-names">
                             <span className="day">{this.props.t("day_1")}</span>
                             <span className="day">{this.props.t("day_2")}</span>
