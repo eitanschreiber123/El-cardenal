@@ -12,13 +12,7 @@ const Wrapper = styled.div`font-family:Playfair Display;main>section{background-
 class ContactPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      first: ``,
-      email: ``,
-      second: ``,
-      third: ``
-    }
-    }
+    this.state={first:``,email:``,second:``,third:``}}
   static async getInitialProps(ctx){
     return {namespacesRequired: ['common','header']}
   }

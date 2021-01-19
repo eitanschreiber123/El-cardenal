@@ -31,8 +31,7 @@ if (!dev && cluster.isMaster) {
     }).catch((error) => {
       console.log('failed', error)
       res.send('badddd')
-    })
-  })
+    })})
   server.post('/api/other', (req, res) => {
 const { senderMail, name, origin, affair, message } = req.body
 mailer({ senderMail, name, origin, affair, message }).then(() => {
@@ -40,9 +39,7 @@ mailer({ senderMail, name, origin, affair, message }).then(() => {
   res.send('success')
 }).catch((error) => {
   console.log('failed', error)
-  res.send('badddd')
-})
-})
+  res.send('badddd')})})
       if (!dev) {
         server.use(function(req, res, next) {
           var proto = req.headers["x-forwarded-proto"];
