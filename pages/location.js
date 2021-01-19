@@ -21,6 +21,7 @@ class LocationPage extends Component {
             <h1>Location</h1>
             <div>
               <div style={{background:`center / cover no-repeat url(/location/first.jpg)`}}>
+                <p>Puerta de la ciudad</p>
               </div>
               <div style={{background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
               <div style={{background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
