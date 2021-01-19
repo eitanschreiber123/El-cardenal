@@ -11,7 +11,7 @@ import { GoArrowLeft } from 'react-icons/go';
 import { GoArrowRight } from 'react-icons/go';
 import { i18n, withTranslation } from '../i18n'
 import axios from 'axios';
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.top_list{display:grid;grid-template-columns:repeat(3, 240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.top_list{display:grid;grid-template-columns:repeat(3, 240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;
     header {
         .vertical-center;
         color: #FFFFFF;
@@ -21,36 +21,24 @@ const Wrapper=styled.div`font-family:Playfair Display;main>section{background-co
         font-weight: bold;
         text-transform: uppercase;
         user-select: none;
-        .month-display {align-items: center;height: 40px;background: rgb(97, 26, 30);}
-        .month-label {flex: 1;}
-        .arrow {text-align: center;flex-basis: 15%;font-weight: bold;cursor: pointer;transition: background .2s;height: 100%;display: flex;justify-content: center;align-items: center;}}
-    .week {border-top: solid 1px #CCCCCC;
-        &:first-child {border-top: none;}}
-    .day-names {color: rgb(97, 26, 30);font-weight: bold;cursor: default;font-size: 1rem;
-        .day {cursor: default;
-            &:hover {background: inherit;}}}
+        .month-display{align-items:center;height:40px;background:rgb(97, 26, 30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97, 26, 30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}
     .day {.vertical-center;
         flex: 1;
         height: 35px;
         border-left: solid 1px #CCCCCC;
         cursor: pointer;
         transition: all .2s;
-        &:hover {background: #EFEFEF;}
-        &:first-child {border-left:none;}
-        &.today {background: lighten(#2875C7,45%);}
-        &.different-month {color: #C0C0C0;}
-        &.selected{background: rgb(97, 26, 30);color: #FFFFFF;}
-        &.before{background:grey !important;color:#FFFFFF !important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor: not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment > div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}`
+        &:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97, 26, 30);color:#FFFFFF;}&.before{background:grey !important;color:#FFFFFF !important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}`
 class DayNames extends Component {
     render() {
         return (<div className="row day-names">
-            <span className="day">Sun</span>
-            <span className="day">Mon</span>
-            <span className="day">Tue</span>
-            <span className="day">Wed</span>
-            <span className="day">Thu</span>
-            <span className="day">Fri</span>
-            <span className="day">Sat</span>
+            <span className="day">{this.props.t("day_1")}</span>
+            <span className="day">{this.props.t("day_2")}</span>
+            <span className="day">{this.props.t("day_3")}</span>
+            <span className="day">{this.props.t("day_4")}</span>
+            <span className="day">{this.props.t("day_5")}</span>
+            <span className="day">{this.props.t("day_6")}</span>
+            <span className="day">{this.props.t("day_7")}</span>
           </div>);
     }}
 class Week extends Component {
