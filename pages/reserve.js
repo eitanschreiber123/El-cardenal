@@ -73,15 +73,17 @@ class Day extends Component {
     return <span key={date.toString()}className={"day" + (isToday ? " today" : "") + (isCurrentMonth ? "" : " different-month") + (date.isSame(selected) ? " selected" : "") + (date.isBefore(startingPoint) ? " before" : "")}onClick={!date.isBefore(startingPoint) ? ()=>select(day) : null}>{number}</span>;
   }}
 const which = [201, 202, 301, 302, 303, 304];
+const start = moment()
+start.locale(`en`)
 class ReservePage extends Component {
   constructor(props) {
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:moment(),secondMonth:moment(),firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
   static async getInitialProps(ctx){
     return {namespacesRequired: ['common', 'header']}
   }
   componentDidMount() {
-    moment().locale(`en`)
+    start.locale(`en`)
   }
   selectRoom = n => {
     const y = n
@@ -95,7 +97,7 @@ class ReservePage extends Component {
       const senderMail = `eitanschreiber97@gmail.com`
         const res = await sendContactMail(senderMail, this.state.em, which.filter((w, ind) => this.state.rooms[ind]), [this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")], this.state.payment, this.state.price, [this.state.adults,this.state.children])
         if (res.status < 300) {
-          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:moment().startOf('day'),firstShow:false,secondSelected:moment().startOf('day'),secondShow:false,payment:``,price:null,firstMonth:moment(),secondMonth:moment()})
+          this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start})
         }}
       firstPrevious = () => {
         const {
