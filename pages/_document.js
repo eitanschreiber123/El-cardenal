@@ -21,7 +21,7 @@ export default class SiteDocument extends Document{
         </Head>
         <>
           <GlobalStyle/>
-          <div className='root'style={{width:`100vw`,margin:0,padding:0}}>{main}</div>
+          {main}
           <NextScript/>
         </>
       </html>)}}
