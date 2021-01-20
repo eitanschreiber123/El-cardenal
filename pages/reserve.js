@@ -191,18 +191,18 @@ class ReservePage extends Component {
         <Header func={this.changeEverything}/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
-            <h1>How many people</h1>
+            <h1>{this.props.t("reserve_1")}</h1>
             <div className="people">
               <div className="adults">
-                <p>Adults</p>
+                <p>{this.props.t("reserve_2")}</p>
                 <select value={this.state.adults}onChange={e=>this.setState({adults:e.target.value})}>{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(f => <option value={f}>{f}</option>)}</select>
               </div>
               <div className="children">
-                <p>Children: 10 - 17<br/>(free for children under 10 years old)</p>
+                <p>{this.props.t("reserve_3")}: 10 - 17<br/>({this.props.t("reserve_4")})</p>
                 <select value={this.state.children}onChange={e=>this.setState({children:e.target.value})}>{[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(f => <option value={f}>{f}</option>)}</select>
               </div>
             </div>
-            <h1>Select your room</h1>
+            <h1>{this.props.t("reserve_5")}</h1>
             <div className="top_list">
             {Rooms.map((r,ind)=>{
               return <div onClick={()=>this.selectRoom(ind)}>
@@ -210,10 +210,10 @@ class ReservePage extends Component {
                   <div style={{width:`240px`,height:`170px`,background:`center / cover no-repeat url(/roomsPage/${r.number}.jpg)`,backgroundColor:this.state.rooms[ind] ? `grey` : null,backgroundBlendMode:`multiply`}}></div>
                 </div>})}
               </div>
-              <h1>Select the date</h1>
+              <h1>{this.props.t("reserve_6")}</h1>
               <div className="dates">
                 <div>
-                  <p>Check in</p>
+                  <p>{this.props.t("reserve_7")}</p>
                   <section>
                     {this.state.firstShow ? <p>{this.state.firstSelected.format("ll")}</p> : null}
                     <section className="calendar">
@@ -239,7 +239,7 @@ class ReservePage extends Component {
                   </section>
                 </div>
                 <div>
-                  <p>Check out</p>
+                  <p>{this.props.t("reserve_8")}</p>
                   <section>
                     {this.state.secondShow ? <p>{this.state.secondSelected.format("ll")}</p> : null}
                     <section className="calendar">
@@ -266,28 +266,28 @@ class ReservePage extends Component {
                 </div>
               </div>
               <div className="price">
-              <button onClick={() => this.calculatePrice(this.state.firstSelected._d.getTime(),this.state.secondSelected._d.getTime())}>See price</button>
+              <button onClick={() => this.calculatePrice(this.state.firstSelected._d.getTime(),this.state.secondSelected._d.getTime())}>{this.props.t("reserve_9")}</button>
               <p style={{fontSize: `1.5em`}}>{this.state.price}$</p>
               </div>
               <div className="bottom">
-              <div style={{margin: `20px 0`, width: `100%`, display: `flex`, justifyContent: `center`}}><Link href="/services"><a><button>See whats included</button></a></Link></div>
-              <h1>How would you like to pay</h1>
+              <div style={{margin: `20px 0`, width: `100%`, display: `flex`, justifyContent: `center`}}><Link href="/services"><a><button>{this.props.t("reserve_10")}</button></a></Link></div>
+              <h1>{this.props.t("reserve_11")}</h1>
               <div className="payment">
                 <div>
                   <input type="radio" id="advance" name="pay" value="advance"onChange={e=>this.setState({payment:e.target.value})}/>
-                  <p>Pay in advance</p>
+                  <p>{this.props.t("reserve_12")}</p>
                 </div>
                 <div>
                   <input type="radio" id="arrival" name="pay" value="arrival"onChange={e=>this.setState({payment:e.target.value})}/>
-                  <p>Pay at time of arrival</p>
+                  <p>{this.props.t("reserve_13")}</p>
                 </div>
               </div>
               <div>
               <p>Email</p>
               <input type="text"id="em"name="em_name"value={em}onChange={e=>this.setState({em:e.target.value})}/>
               </div>
-              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')}onClick={this.submitForm}>Reserve</button>
-              {this.state.thank_you && <p>thank you</p>}
+              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')}onClick={this.submitForm}>{this.props.t("reserve_14")}</button>
+              {this.state.thank_you && <p>{this.props.t("reserve_15")}</p>}
               </div>
           </section>
         </main>
