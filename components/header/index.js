@@ -3,7 +3,7 @@ import dynamic from'next/dynamic';
 import Link from'next/link'
 import styled from'styled-components'
 import {i18n,withTranslation}from'../../i18n'
-const Wrapper=styled.div`display:flex;flex-direction:row;background-color:black;height:50px;align-items:center;justify-content:space-evenly;width:100vw;position:fixed;z-index:10;.ho,.first,.last{padding:1px;color:white;background-color:rgb(97, 26, 30);text-decoration:none;}.ho:hover,.first:hover,.last:hover{color:rgb(97, 26, 30);background-color:white;}.hol{display:flex;flex-direction:row;}.hol>p{cursor:pointer;}.corr{color:rgb(97, 26, 30) !important;}.wrong{color:white !important;}`
+const Wrapper=styled.div`display:flex;flex-direction:row;background-color:black;height:50px;align-items:center;justify-content:space-evenly;width:100%;position:fixed;z-index:10;.ho,.first,.last{padding:1px;color:white;background-color:rgb(97, 26, 30);text-decoration:none;}.ho:hover,.first:hover,.last:hover{color:rgb(97, 26, 30);background-color:white;}.hol{display:flex;flex-direction:row;}.hol>p{cursor:pointer;}.corr{color:rgb(97, 26, 30) !important;}.wrong{color:white !important;}`
 class Header extends Component {
   constructor(props) {
     super(props);
