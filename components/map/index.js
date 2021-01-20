@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import ReactLeafletGoogleLayer from 'react-leaflet-google-layer';
-import { MapContainer, TileLayer, LayersControl, Marker, MapControl, withLeaflet } from 'react-leaflet';
-import fetch from 'isomorphic-unfetch'
+import React,{Component}from'react'
+import ReactLeafletGoogleLayer from'react-leaflet-google-layer';
+import{MapContainer,TileLayer,LayersControl,Marker,MapControl,withLeaflet}from'react-leaflet';
+import fetch from'isomorphic-unfetch'
 class MyMap extends Component {
   constructor(props) {
     super(props);

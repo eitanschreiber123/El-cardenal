@@ -1,31 +1,30 @@
-import React, { Component } from 'react'
-import dynamic from 'next/dynamic';
-import Link from 'next/link'
-import styled from 'styled-components'
-import Header from '../../components/header'
-import OtherFooter from '../../components/otherFooter'
-import Rooms from '../../data/rooms'
-import { AiOutlineArrowLeft } from 'react-icons/ai';
-import { FaWifi } from 'react-icons/fa';
-import { FaShower } from 'react-icons/fa';
-import { FaPhone } from 'react-icons/fa';
-import { FaDesktop } from 'react-icons/fa';
-import { BiCloset } from 'react-icons/bi';
-import { GiDesk } from 'react-icons/gi';
-import { i18n, withTranslation } from '../../i18n'
-const Wrapper = styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}main>section>div:first-of-type>div:first-of-type{display:flex;flex-direction:row;align-items:flex-end;margin-bottom:20px;}.images{display:flex;flex-direction:column;}.images>div:last-of-type{display:flex;flex-direction:row;}.info_1,.info_3{display:flex;flex-direction:row;justify-content:space-evenly;}.info_2{display:grid;grid-template-columns:repeat(2, 40%);padding-left:25%;grid-gap:20px 30px;}.info_2 >div{display:flex;flex-direction:row;align-items:center;}.top{width:100%;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;}.top a{text-decoration:none;color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;}`
+import React,{Component}from'react'
+import dynamic from'next/dynamic';
+import Link from'next/link'
+import styled from'styled-components'
+import Header from'../../components/header'
+import OtherFooter from'../../components/otherFooter'
+import Rooms from'../../data/rooms'
+import{AiOutlineArrowLeft }from'react-icons/ai';
+import{FaWifi}from'react-icons/fa';
+import{FaShower}from'react-icons/fa';
+import{FaPhone}from'react-icons/fa';
+import{FaDesktop}from'react-icons/fa';
+import{BiCloset}from'react-icons/bi';
+import{GiDesk}from'react-icons/gi';
+import{i18n,withTranslation}from'../../i18n'
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}main>section>div:first-of-type>div:first-of-type{display:flex;flex-direction:row;align-items:flex-end;margin-bottom:20px;}.images{display:flex;flex-direction:column;}.images>div:last-of-type{display:flex;flex-direction:row;}.info_1,.info_3{display:flex;flex-direction:row;justify-content:space-evenly;}.info_2{display:grid;grid-template-columns:repeat(2, 40%);padding-left:25%;grid-gap:20px 30px;}.info_2 >div{display:flex;flex-direction:row;align-items:center;}.top{width:100%;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;}.top a{text-decoration:none;color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;}`
 class EachPage extends Component {
   constructor(props) {
     super(props);
     this.state={active:`big_1`}}
   static async getInitialProps(ctx){
-    const { id } = ctx.query;
-    const r = Rooms[id];
-    return {r, tran: {namespacesRequired: ['common', 'header']} }
-  }
-  changeImage = n =>this.setState({active:n});
-  render() {
-    return (<Wrapper>
+    const{id}=ctx.query;
+    const r=Rooms[id];
+    return{r,tran:{namespacesRequired:['common','header']}}}
+  changeImage=n=>this.setState({active:n});
+  render(){
+    return(<Wrapper>
         <Header/>
         <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>

@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import dynamic from 'next/dynamic';
-import Link from 'next/link'
-import styled from 'styled-components'
-const Wrapper = styled.div`background-color:black;display:flex;flex-direction:row;padding:10px 150px;justify-content:space-between;align-items:center;position:relative;z-index:10;section{display:flex;flex-direction:row;}p{font-family: Playfair Display;}`
+import React,{Component}from'react'
+import dynamic from'next/dynamic';
+import Link from'next/link'
+import styled from'styled-components'
+const Wrapper=styled.div`background-color:black;display:flex;flex-direction:row;padding:10px 150px;justify-content:space-between;align-items:center;position:relative;z-index:10;section{display:flex;flex-direction:row;}p{font-family: Playfair Display;}`
 class OtherFooter extends Component {
   constructor(props) {
     super(props);
     }
-  render() {
-    return (<Wrapper>
+  render(){
+    return(<Wrapper>
       <section style={{alignItems:`center`}}>
         <div style={{display:`flex`,flexDirection:`row`,marginRight:`20px`}}>
           <Link href="https://www.facebook.com/elcardenalhotel/"><a target="_blank"rel="noopener noreferrer"><div style={{width:`24px`,height:`24px`,background:`center / cover no-repeat url(facebook.png)`,borderRadius:`5px`,marginRight:`10px`}}></div></a></Link>
