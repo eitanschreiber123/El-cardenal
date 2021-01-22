@@ -59,7 +59,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
     const y=n
     this.setState(prev=>{
       const rooms=prev.rooms.map((r,ind)=>{if(ind==y){return !r
-      }else{returnr}})
+      }else{return}})
       return{rooms,thank_you:false}})}
     submitForm=async e=>{
       e.preventDefault();
