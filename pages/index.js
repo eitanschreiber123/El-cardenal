@@ -5,24 +5,27 @@ import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
-const Wrapper=styled.div`font-family:Playfair Display;main>div:first-of-type{display:flex;flex-direction:column;align-items:center;margin-bottom:50px;}main>div:last-of-type>div:last-of-type{display:grid;grid-template-columns:repeat(4, 235px);}main>div:last-of-type{display:flex;flex-direction:column;align-items:center;}button{width:261px;height:40px;background-color:white;border:1px solid black;}button:hover{background-color:rgb(97, 26, 30);border:1px solid white;}a{color:black;}main>div:last-of-type>div p,main>div:last-of-type>div h1{font-size:14px;font-weight:400;}`
+const Wrapper=styled.div`font-family:Playfair Display;main>div:first-of-type{display:flex;flex-direction:column;align-items:center;margin-bottom:50px;}main>div:last-of-type>div:last-of-type{display:grid;grid-template-columns:repeat(4,235px);}main>div:last-of-type{display:flex;flex-direction:column;align-items:center;}main>div a>button{width:261px;height:40px;background-color:white;border:1px solid black;}main>div a>button:hover{background-color:rgb(97,26,30);border:1px solid white;}a{color:black;}main>div:last-of-type>div p,main>div:last-of-type>div h1{font-size:14px;font-weight:400;}main{align-items:flex-end;}.award{flex-direction:row;}.award>div{margin:50px 0;}@media(max-width:1140px){main{align-items:center;}}@media(max-width:970px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(3,235px)}}@media(max-width:700px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(2,235px)}}@media(max-width:600px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(1,235px)}}@media(max-width:500px){.award{flex-direction:column;}.award>div{margin:50px 0;}}`
 class HomePage extends Component{
-  constructor(props) {
+  constructor(props){
     super(props);
-    }
+    this.state={w:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
+    componentDidMount() {this.checkWidth()
+      window.addEventListener('resize',this.checkWidth)}
+checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
   render(){
-    return(<Wrapper>
+    return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:`100%`,margin:0,padding:`50px 200px 100px 200px`,position:`relative`,top:`7vh`,display:`flex`,flexDirection:`column`,alignItems:`flex-end`,zIndex:1,backgroundAttachment:`fixed`,backgroundImage:`url(/home/background_1.png)`,backgroundPosition:`center`,backgroundSize:`contain`,backgroundRepeat:`no-repeat`,backgroundColor:`grey`,backgroundBlendMode:`soft-light`}}>
+        <main style={{width:this.state.w,margin:0,padding:`50px 200px 100px 200px`,position:`relative`,top:`50px`,display:`flex`,flexDirection:`column`,zIndex:1,backgroundAttachment:`fixed`,backgroundImage:`url(/home/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`,backgroundColor:`grey`,backgroundBlendMode:`soft-light`}}>
           <div>
             <h1 style={{fontFamily:`Playfair Display`,fontSize:`100px`,lineHeight:`1.2em`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`,color:`white`,marginBottom:`20px`,fontWeight:500}}>{this.props.t("header_1")}</h1>
             <h1 style={{fontFamily:`times new roman`,fontSize:`30px`,lineHeight:`1.2em`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_2")}</h1>
             <Link href="/rooms"><a><button>{this.props.t("button")}</button></a></Link>
           </div>
           <div>
-          <div style={{display: `flex`,flexDirection:`row`,width:`100%`,justifyContent:`space-evenly`}}>
+          <div className="award" style={{display: `flex`,width:`100%`,justifyContent:`space-evenly`}}>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_1.png)`}}></div>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_2.jpg)`}}></div>
           </div>

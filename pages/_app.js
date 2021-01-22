@@ -1,3 +1,4 @@
+import '../pages/style.css'
 import App from'next/app'
 import{appWithTranslation}from'../i18n'
 import React from'react'

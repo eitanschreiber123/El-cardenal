@@ -12,19 +12,19 @@ import{GoArrowRight}from'react-icons/go';
 import{i18n,withTranslation}from'../i18n'
 import axios from'axios';
 import'../components/moment/locale/es.js';
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.top_list{display:grid;grid-template-columns:repeat(3, 240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;header{.vertical-center;
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;}.top_list{display:grid;grid-template-columns:repeat(3,240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;header{.vertical-center;
         color:#FFFFFF;
         cursor:default;
         font-size:1.1rem;
         display:block;
         font-weight:bold;
         text-transform:uppercase;
-        user-select:none;.month-display{align-items:center;height:40px;background:rgb(97, 26, 30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97, 26, 30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}.day{.vertical-center;
+user-select:none;.month-display{align-items:center;height:40px;background:rgb(97,26,30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97,26,30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}.day{.vertical-center;
         flex: 1;
         height: 35px;
         border-left: solid 1px #CCCCCC;
         cursor: pointer;
-        transition: all .2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97, 26, 30);color:#FFFFFF;}&.before{background:grey !important;color:#FFFFFF !important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}`
+        transition:all .2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width: 800px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
 class Week extends Component{
   render(){
     let days=[];
@@ -48,10 +48,13 @@ start.locale(`en`)
 class ReservePage extends Component{
   constructor(props){
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w: ``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
-  componentDidMount(){start.locale(`en`)}
+  componentDidMount(){start.locale(`en`)
+    this.checkWidth()
+    window.addEventListener('resize',this.checkWidth)}
+checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
   selectRoom=n=>{
     const y=n
     this.setState(prev=>{
@@ -64,17 +67,13 @@ class ReservePage extends Component{
         const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children])
         if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start})}}
       firstPrevious=()=>{const{firstMonth}=this.state;
-        this.setState({firstMonth:firstMonth.subtract(1,'month')});
-      }
+        this.setState({firstMonth:firstMonth.subtract(1,'month')})}
       secondPrevious=()=>{const{secondMonth}=this.state;
-        this.setState({secondMonth:secondMonth.subtract(1,'month')});
-      }
+        this.setState({secondMonth:secondMonth.subtract(1,'month')})}
       firstNext=()=>{const{firstMonth}=this.state;
-        this.setState({firstMonth:firstMonth.add(1,'month')});
-      }
+        this.setState({firstMonth:firstMonth.add(1,'month')})}
       secondNext=()=>{const{secondMonth}=this.state;
-        this.setState({secondMonth:secondMonth.add(1,'month')});
-      }
+        this.setState({secondMonth:secondMonth.add(1,'month')})}
       firstSelect=day=>this.setState({firstShow:true,firstSelected:day.date,firstMonth:day.date.clone(),secondMonth:day.date.clone()})
       secondSelect=day=>this.setState({secondShow:true,secondSelected:day.date,secondMonth:day.date.clone()})
       renderFirstWeeks(){
@@ -128,9 +127,9 @@ class ReservePage extends Component{
     const{rooms,date,em}=this.state
     const test=moment()
     test.locale(`en`)
-    return(<Wrapper>
+    return(<Wrapper style={{width:this.state.w}}>
         <Header func={this.changeEverything}/>
-        <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("reserve_1")}</h1>
             <div className="people">

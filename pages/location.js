@@ -5,20 +5,20 @@ import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
-const Wrapper=styled.div`font-family:Playfair Display;
-main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90vw;padding-bottom:100px;}
-main>section>div:first-of-type{display:flex;flex-wrap:wrap;justify-content:center;}
-main>section>div:first-of-type>div{margin:3vw;width:200px;height:200px;}`
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type{display:flex;flex-wrap:wrap;justify-content:center;}main>section>div:first-of-type>div{margin:3vw;width:200px;height:200px;}`
 class LocationPage extends Component{
   constructor(props) {
     super(props);
-    }
+    this.state={w:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
+    componentDidMount() {this.checkWidth()
+      window.addEventListener('resize',this.checkWidth)}
+checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
   render(){
-    return(<Wrapper>
+    return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:`100%`,margin:0,position:`relative`,top:`7vh`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("location")}</h1>
             <div>
