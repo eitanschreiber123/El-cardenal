@@ -40,9 +40,9 @@ setOpen=()=>this.setState({open:!this.state.open});
       <section className="desk">
       <Link href="/rooms"><a className="first">{this.props.t("bedrooms")}</a></Link>
       <Link href="/events"><a className="ho">{this.props.t("events")}</a></Link>
-      <Link href="/services"><a className="ho">Services</a></Link>
+      <Link href="/services"><a className="ho">{this.props.t("services")}</a></Link>
       <Link href="/"><a><div style={{width:`151px`,height:`123px`,background:`center / cover no-repeat url(header.png)`,marginTop:`80px`}}></div></a></Link>
-      <Link href="/location"><a className="ho">Location</a></Link>
+      <Link href="/location"><a className="ho">{this.props.t("location")}</a></Link>
       <Link href="/contact"><a className="last">{this.props.t("contact")}</a></Link>
       <div className="hol">
         <p className={this.state.active==`en`?`corr`:`wrong`}style={{marginRight:`10px`}}onClick={()=>this.changeLang(`en`)}>EN</p>
@@ -55,8 +55,8 @@ setOpen=()=>this.setState({open:!this.state.open});
         <Menu dim={this.state.w}open={this.state.open}setOpen={this.setOpen}>
           <Link href="/rooms"><a>{this.props.t("bedrooms")}</a></Link>
           <Link href="/events"><a>{this.props.t("events")}</a></Link>
-          <Link href="/services"><a>Services</a></Link>
-          <Link href="/location"><a>Location</a></Link>
+          <Link href="/services"><a>{this.props.t("services")}</a></Link>
+          <Link href="/location"><a>{this.props.t("location")}</a></Link>
           <Link href="/contact"><a>{this.props.t("contact")}</a></Link>
           <div className="hol">
             <p className={this.state.active==`en`?`corr`:`mob_wrong`}style={{marginRight:`10px`}}onClick={()=>this.changeLang(`en`)}>EN</p>

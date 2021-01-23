@@ -1,5 +1,7 @@
 {
   "bedrooms": "Bedrooms",
   "events": "Events",
-  "contact": "Contact Us"
+  "contact": "Contact Us",
+  "services": "Services",
+  "location": "Location"
 }

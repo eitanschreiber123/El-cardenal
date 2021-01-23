@@ -1,5 +1,7 @@
 {
   "bedrooms": "Habitaciones",
   "events": "Eventos",
-  "contact": "Contacto"
+  "contact": "Contacto",
+  "services": "Servicios",
+  "location": "Ubicación"
 }
