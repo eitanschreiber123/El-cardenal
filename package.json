@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next server.js",
     "build": "next build",
-    "start": "next start -p 3000",
+    "start": "next start -p $PORT",
     "heroku-postbuild": "npm run build",
     "precommit": "lint-staged"
   },
