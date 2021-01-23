@@ -21,8 +21,8 @@ if(!dev&&cluster.isMaster){
       server.use(cors());
       app.use(bodyParser.urlencoded({extended:true}));
       app.use(bodyParser.json());
-      server.post('/api/contact',(req,res)=>{const{senderMail,sendTo,rooms,date,payment,price,people}=req.body
-    mailer({senderMail,sendTo,rooms,date,payment,price,people}).then(()=>{res.send('success')}).catch((error)=>{res.send('badddd')})})
+      server.post('/api/contact',(req,res)=>{const{senderMail,sendTo,rooms,date,payment,price,people,food}=req.body
+    mailer({senderMail,sendTo,rooms,date,payment,price,people,food}).then(()=>{res.send('success')}).catch((error)=>{res.send('badddd')})})
   server.post('/api/other',(req,res)=>{const{senderMail,name,origin,affair,message}=req.body
 mailer({senderMail,name,origin,affair,message}).then(()=>{res.send('success')}).catch((error)=>{res.send('badddd')})})
       if(!dev){

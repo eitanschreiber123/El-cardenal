@@ -70,5 +70,8 @@
   "day_4": "Wed",
   "day_5": "Thu",
   "day_6": "Fri",
-  "day_7": "Sat"
+  "day_7": "Sat",
+  "food_1": "Do you want breakfast",
+  "food_2": "yes",
+  "food_3": "no"
 }

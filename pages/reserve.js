@@ -24,7 +24,7 @@ user-select:none;.month-display{align-items:center;height:40px;background:rgb(97
         height: 35px;
         border-left: solid 1px #CCCCCC;
         cursor: pointer;
-        transition:all .2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price{display:flex;flex-direction:row;}.people,.payment{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width: 800px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
+        transition:all .2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price,.food,.food>div{display:flex;flex-direction:row;}.people,.payment,.food{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price,.food>div{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button, .food input{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width: 800px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
 class Week extends Component{
   render(){
     let days=[];
@@ -48,24 +48,29 @@ start.locale(`en`)
 class ReservePage extends Component{
   constructor(props){
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w: ``}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w: ``,food:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
   componentDidMount(){start.locale(`en`)
     this.checkWidth()
     window.addEventListener('resize',this.checkWidth)}
 checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
-  selectRoom=n=>{
+  selectRoom = n => {
     const y=n
-    this.setState(prev=>{
-      const rooms=prev.rooms.map((r,ind)=>{if(ind==y){return !r
-      }else{return}})
-      return{rooms,thank_you:false}})}
+    this.setState(prev => {
+      const rooms = prev.rooms.map((r,ind) => {
+        if (ind==y) {
+          return !r;
+        } else {
+          return r;
+        }})
+      return{rooms,thank_you:false};
+    })}
     submitForm=async e=>{
       e.preventDefault();
-      const senderMail=`eitanschreiber97@gmail.com`
-        const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children])
-        if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start})}}
+      const senderMail=`elcardenalhotel@gmail.com`
+        const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children],this.state.food)
+        if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start,food:``})}}
       firstPrevious=()=>{const{firstMonth}=this.state;
         this.setState({firstMonth:firstMonth.subtract(1,'month')})}
       secondPrevious=()=>{const{secondMonth}=this.state;
@@ -106,7 +111,9 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         }
         return weeks;
       };
-      calculatePrice=(s,e)=>this.setState({price:((e - s) / (1000 * 3600 * 24)) * ((20 + (this.state.adults - 1) * 10) + (this.state.children * 5))});
+      calculatePrice=(s,e)=>{const starter = this.state.food == `yes` ? 20 : 17;
+        this.setState({price:((e - s) / (1000 * 3600 * 24)) * ((starter + (this.state.adults - 1) * 10) + (this.state.children * 5))});
+      }
       changeEverything=()=>{
           if(this.state.lang==`es`){
             this.setState(prev=>{
@@ -149,6 +156,17 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                   <h1>{r.number}</h1>
                   <div style={{width:`240px`,height:`170px`,background:`center / cover no-repeat url(/roomsPage/${r.number}.jpg)`,backgroundColor:this.state.rooms[ind] ? `grey` : null,backgroundBlendMode:`multiply`}}></div>
                 </div>})}
+              </div>
+              <h1>{this.props.t("food_1")}</h1>
+              <div className="food">
+                <div>
+                  <input type="radio"id="yes"name="pay"value="yes"onChange={e=>this.setState({food:e.target.value})}/>
+                  <p>{this.props.t("food_2")}</p>
+                </div>
+                <div>
+                  <input type="radio"id="no"name="pay"value="no"onChange={e=>this.setState({food:e.target.value})}/>
+                  <p>{this.props.t("food_3")}</p>
+                </div>
               </div>
               <h1>{this.props.t("reserve_6")}</h1>
               <div className="dates">
@@ -224,7 +242,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               <p>Email</p>
               <input type="text"id="em"name="em_name"value={em}onChange={e=>this.setState({em:e.target.value})}/>
               </div>
-              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')}onClick={this.submitForm}>{this.props.t("reserve_14")}</button>
+              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.food==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')}onClick={this.submitForm}>{this.props.t("reserve_14")}</button>
               {this.state.thank_you&&<p>{this.props.t("reserve_15")}</p>}
               </div>
           </section>

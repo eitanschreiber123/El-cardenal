@@ -1,11 +1,11 @@
 import nodemailer from "nodemailer"
-const emailPass = "qbmD6Zs8Qv76b96"
+const emailPass = "remi2017"
 const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
     secure: true,
     auth: {
-        user: "eitanschreiber97@gmail.com",
+        user: "elcardenalhotel@gmail.com",
         pass: emailPass
     },
     tls: {
@@ -13,15 +13,15 @@ const transporter = nodemailer.createTransport({
     }
   })
 export default async (req, res) => {
-    const { senderMail, sendTo, rooms, date, payment, price, people } = req.body
-    if (sendTo === "" || rooms === "" || date === "" || payment === "" || people[0] == 0) {
+    const { senderMail, sendTo, rooms, date, payment, price, people, food } = req.body
+    if (sendTo === "" || rooms === "" || date === "" || payment === "" || people[0] == 0 || food == ``) {
         res.status(403).send("")
         return
     }
-    const mailerRes = await mailer({ senderMail, sendTo, rooms, date, payment, price, people })
+    const mailerRes = await mailer({ senderMail, sendTo, rooms, date, payment, price, people, food })
     res.send(mailerRes)
 }
-const mailer = ({ senderMail, sendTo, rooms, date, payment, price, people }) => {
+const mailer = ({ senderMail, sendTo, rooms, date, payment, price, people, food }) => {
     const message = {
         senderMail,
         to: `${sendTo}`,
@@ -36,13 +36,14 @@ const mailer = ({ senderMail, sendTo, rooms, date, payment, price, people }) => 
     }
     const otherMessage = {
         senderMail,
-        to: `${sendTo}`,
+        to: `${senderMail}`,
         subject: `El Cardenal Hotel`,
         text: `una reserva
         personas: ${people[0]}
         niños: ${people[1]}
         habitaciones: ${rooms.map(r => `${r}, `)}
         cuando: ${date[0]} - ${date[1]}
+        desayuno: ${food}
         ${payment === `advance` ? `huesped quiere pagar ahora` : `huesped quiere pagar cuando ir en el hotel`}`,
         replyTo: senderMail
     }
