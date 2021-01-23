@@ -68,6 +68,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
     })}
     submitForm=async e=>{
       e.preventDefault();
+      this.calculatePrice(this.state.firstSelected._d.getTime(),this.state.secondSelected._d.getTime());
       const senderMail=`elcardenalhotel@gmail.com`
         const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children],this.state.food)
         if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em: ``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start,food:``})}}
