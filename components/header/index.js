@@ -30,7 +30,7 @@ class Header extends Component {
   return{namespacesRequired:['header'],func}}
   componentDidMount(){this.checkHeight()
     window.addEventListener('resize',this.checkHeight)}
-checkHeight=()=>{if(window.matchMedia('(max-height:300px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:350px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:400px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:450px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:500px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:550px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:600px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:650px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:700px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:750px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:800px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:850px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:900px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:950px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height:1000px)')){this.setState({w:window.innerHeight})}else if(window.matchMedia('(max-height: 1050px)')){this.setState({w:window.innerHeight})}else{this.setState({w:`100%`})}}
+checkHeight=()=>this.setState({w:window.innerHeight})
 changeLang=n=>{this.setState({active:n})
 i18n.changeLanguage(n)
 this.props.func()}
