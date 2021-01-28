@@ -3,7 +3,7 @@ import dynamic from'next/dynamic';
 import Link from'next/link'
 import styled from'styled-components'
 const Wrapper=styled.div`background-color:black;display:flex;flex-direction:row;padding:10px 0;justify-content:space-evenly;align-items:center;position:relative;z-index:10;section{display:flex;flex-direction:row;margin:30px;}p{font-family: Playfair Display;}@media(max-width:800px){flex-direction:column;align-items:center;section{margin:30px 0;width:100%;justify-content:space-evenly;}}`
-class OtherFooter extends Component{
+export default class OtherFooter extends Component{
   constructor(props){
     super(props);
     this.state={w:``}}
@@ -25,4 +25,3 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         <div style={{background:`center / cover no-repeat url(visa.png)`,width:`51px`,height:`27px`,borderRadius:`5px`,marginRight:`10px`}}></div>
       </section>
       </Wrapper>)}}
-export default OtherFooter
