@@ -34,6 +34,7 @@
     "react-icons": "^4.1.0",
     "react-leaflet": "^3.0.5",
     "react-leaflet-google-layer": "^2.0.3",
+    "react-player": "^2.8.2",
     "standard": "^16.0.3",
     "styled-components": "^5.2.1",
     "url": "^0.11.0"

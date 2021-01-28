@@ -5,6 +5,7 @@ import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
+import ReactPlayer from 'react-player/youtube'
 const Wrapper=styled.div`font-family:Playfair Display;main>div:first-of-type{display:flex;flex-direction:column;align-items:center;margin-bottom:50px;}main>div:last-of-type>div:last-of-type{display:grid;grid-template-columns:repeat(4,235px);}main>div:last-of-type{display:flex;flex-direction:column;align-items:center;}main>div a>button{width:261px;height:40px;background-color:white;border:1px solid black;}main>div a>button:hover{background-color:rgb(97,26,30);border:1px solid white;}a{color:black;}main>div:last-of-type>div p,main>div:last-of-type>div h1{font-size:14px;font-weight:400;}main{align-items:flex-end;}.award{flex-direction:row;}.award>div{margin:50px 0;}@media(max-width:1140px){main{align-items:center;}}@media(max-width:970px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(3,235px)}}@media(max-width:700px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(2,235px)}}@media(max-width:600px){main>div:last-of-type>div:last-of-type{grid-template-columns:repeat(1,235px)}}@media(max-width:500px){.award{flex-direction:column;}.award>div{margin:50px 0;}}`
 class HomePage extends Component{
   constructor(props){
@@ -29,6 +30,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_1.png)`}}></div>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_2.jpg)`}}></div>
           </div>
+          <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y' controls width="100%"/>
           <h1 style={{color:`white`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_3")}</h1>
           <div>
             <div style={{width:`235px`,height:`276px`,background:`center / cover no-repeat url(/home/table.png)`}}></div>
