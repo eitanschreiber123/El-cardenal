@@ -25,7 +25,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,display:`flex`,flexDirection:`column`,alignItems:`center`,justifyContent:`center`,zIndex:1,backgroundImage:`url(/contact/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,display:`flex`,flexDirection:`column`,alignItems:`center`,justifyContent:`center`,zIndex:1,backgroundImage:`url(/contact/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("contact_header_1")}</h1>
             <p>{this.props.t("contact_header_2")}</p>

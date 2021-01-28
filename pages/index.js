@@ -19,7 +19,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,padding:`50px 200px 100px 200px`,position:`relative`,top:`50px`,display:`flex`,flexDirection:`column`,zIndex:1,backgroundAttachment:`fixed`,backgroundImage:`url(/home/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`,backgroundColor:`grey`,backgroundBlendMode:`soft-light`}}>
+        <main style={{width:this.state.w,margin:0,padding:`50px 200px 100px 200px`,position:`relative`,top:`50px`,display:`flex`,flexDirection:`column`,zIndex:1,backgroundAttachment:`fixed`,backgroundImage:`url(/home/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`,backgroundColor:`grey`,backgroundBlendMode:`soft-light`}}>
           <div>
             <h1 style={{fontFamily:`Playfair Display`,fontSize:`100px`,lineHeight:`1.2em`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`,color:`white`,marginBottom:`20px`,fontWeight:500}}>{this.props.t("header_1")}</h1>
             <h1 style={{fontFamily:`times new roman`,fontSize:`30px`,lineHeight:`1.2em`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_2")}</h1>
@@ -27,8 +27,8 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
           </div>
           <div>
           <div className="award" style={{display: `flex`,width:`100%`,justifyContent:`space-evenly`}}>
-            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_1.png)`}}></div>
-            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award_2.jpg)`}}></div>
+            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award1.png)`}}></div>
+            <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award2.jpg)`}}></div>
           </div>
           <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y' controls width="100%"/>
           <h1 style={{color:`white`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_3")}</h1>

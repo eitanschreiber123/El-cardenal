@@ -19,7 +19,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("location")}</h1>
             <div>

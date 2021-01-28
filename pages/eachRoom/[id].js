@@ -17,7 +17,7 @@ const Wrapper=styled.div`font-family:Playfair Display;main>section{background-co
 class EachPage extends Component {
   constructor(props) {
     super(props);
-    this.state={active:`big_1`,w:``}}
+    this.state={active:`big1`,w:``}}
   static async getInitialProps(ctx){
     const{id}=ctx.query;
     const r=Rooms[id];
@@ -29,7 +29,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
           <div className="top">
             <h1>{this.props.t("rooms_1")}</h1>
@@ -39,7 +39,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
             <div style={{display:`flex`,flexDirection:`row`,alignItems:`flex-end`,marginBottom:`20px`}}><Link href="/rooms"><a style={{marginRight:`10px`}}><AiOutlineArrowLeft style={{color:`black`,width:`25px`,height:`25px`}}/></a></Link><h1 style={{margin:0,lineHeight:1}}>{this.props.r.number}</h1></div>
             <div className="images">
               <div className="current" style={{height:`408px`,background:`center / cover no-repeat url(/rooms/${this.props.r.number}/${this.state.active}.jpg)`,marginBottom:`20px`}}></div>
-              <div>{[`/rooms/${this.props.r.number}/small_1.jpg`],[`/rooms/${this.props.r.number}/small_2.jpg`],[`/rooms/${this.props.r.number}/small_3.jpg`].map((i,ind)=>{return<div onClick={()=>this.changeImage(`big_${ind + 1}`)}style={{width:`58px`,height:`48px`,background:`center / cover no-repeat url(${i})`}}></div>})}</div>
+              <div>{[`/rooms/${this.props.r.number}/small1.jpg`],[`/rooms/${this.props.r.number}/small2.jpg`],[`/rooms/${this.props.r.number}/small3.jpg`].map((i,ind)=>{return<div onClick={()=>this.changeImage(`big${ind + 1}`)}style={{width:`58px`,height:`48px`,background:`center / cover no-repeat url(${i})`}}></div>})}</div>
             </div>
             <div className="info_1">
               <div><p>{this.props.t("rooms_3")}: {this.props.r.size}<sup>2</sup></p></div>

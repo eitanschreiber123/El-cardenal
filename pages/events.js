@@ -5,7 +5,7 @@ import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0 20px;}main>section>div:first-of-type{display:flex;flex-direction:row;margin-bottom:100px;}main>section>div:first-of-type>div{display:flex;flex-direction:column;width:442px;align-items:center;text-align:center;}main>section>div:first-of-type button{width:fit-content;padding:10px 20px;background-color:white;border:1px solid black;}main>section>div:first-of-type button:hover{background-color:black;color:white;}main>section>div:first-of-type>div>h1{font-size:21px;color:#611A1E;}main>section>div:first-of-type>div:first-of-type{margin-right:50px;}@media(max-width:800px){main>section>div:first-of-type{flex-direction:column;width:90%;}main>section>div:first-of-type>div:first-of-type{margin-right:0;}main>section>div:first-of-type>div{width:100%;}main>section{width:90%;display:flex;flex-direction:column;align-items:center;}}`
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0 20px;}main>section>div:first-of-type{display:flex;flex-direction:row;margin-bottom:50px;}main>section>div:first-of-type>div{display:flex;flex-direction:column;width:442px;align-items:center;text-align:center;}main>section>div:first-of-type button{width:fit-content;padding:10px 20px;background-color:white;border:1px solid black;}main>section>div:first-of-type button:hover{background-color:black;color:white;}main>section>div:first-of-type>div>h1{font-size:21px;color:#611A1E;}main>section>div:first-of-type>div:first-of-type{margin-right:50px;}.special{display:flex;flex-direction:column;margin-bottom:100px;align-items:center;}.special>h1{color:#611A1E;}.special-images{display:grid;grid-template-columns:repeat(2,300px);grid-gap:50px;}@media(max-width:850px){main>section>div:first-of-type{flex-direction:column;width:90%;}main>section>div:first-of-type>div:first-of-type{margin-right:0;}main>section>div:first-of-type>div{width:100%;}main>section{width:90%;display:flex;flex-direction:column;align-items:center;}}@media(max-width:800px){.special-images{grid-template-columns:repeat(1,300px);}}`
 class EventsPage extends Component{
   constructor(props) {
     super(props);
@@ -18,7 +18,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,height:`100vh`,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,justifyContent:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,justifyContent:`center`,zIndex:1,backgroundImage:`url(/events/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("events_header")}</h1>
             <div>
@@ -36,6 +36,15 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                 <p>{this.props.t("column_2_p_2")}</p>
                 <p>{this.props.t("column_2_p_3")}</p>
                 <button>{this.props.t("column_2_button")}</button>
+              </div>
+            </div>
+            <div className="special">
+              <h1>Rooms for special occasions</h1>
+              <div className="special-images">
+                <div style={{width:`300px`,height:`300px`,background:`center / cover no-repeat url(/events/special1.jpg)`}}></div>
+                <div style={{width:`300px`,height:`300px`,background:`center / cover no-repeat url(/events/special2.jpg)`}}></div>
+                <div style={{width:`300px`,height:`300px`,background:`center / cover no-repeat url(/events/special3.jpg)`}}></div>
+                <div style={{width:`300px`,height:`300px`,background:`center / cover no-repeat url(/events/special4.jpg)`}}></div>
               </div>
             </div>
           </section>

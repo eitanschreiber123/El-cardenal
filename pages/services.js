@@ -23,7 +23,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
   render(){
     return(<Wrapper style={{width:this.state.w}}>
         <Header/>
-        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background_1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
+        <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/events/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
             <h1>{this.props.t("services_1")}</h1>
             <div>
@@ -69,9 +69,9 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               </div>
             </div>
             <div className="food">
-              <div style={{background:`center / cover no-repeat url(/services/food_1.jpg)`,margin:`50px`}}></div>
-              <div style={{background:`center / cover no-repeat url(/services/food_2.jpg)`,margin:`50px`}}></div>
-              <div style={{background:`center / cover no-repeat url(/services/food_3.jpg)`,margin:`50px`}}></div>
+              <div style={{background:`center / cover no-repeat url(/services/food1.jpg)`,margin:`50px`}}></div>
+              <div style={{background:`center / cover no-repeat url(/services/food2.jpg)`,margin:`50px`}}></div>
+              <div style={{background:`center / cover no-repeat url(/services/food3.jpg)`,margin:`50px`}}></div>
             </div>
             <div className="airplane">
               <h1>{this.props.t("services_10")}</h1>
