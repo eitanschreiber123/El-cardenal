@@ -202,11 +202,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                     {this.state.secondShow ? <p>{this.state.secondSelected.format("ll")}</p> : null}
                     <section className="calendar">
                       <header className="header">
-                        <div className="month-display row">{(()=>{switch(this.state.secondMonth.format("MMMM YYYY")){
-          case moment().format("MMMM YYYY"): return null;
-          case test.format("MMMM YYYY"): return null;
-          default:<GoArrowLeft onClick={this.secondPrevious}/>;
-        }})()}<span className="month-label">{this.state.secondMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.secondNext}/></div>
+                        <div className="month-display row">{this.state.firstMonth.format("MMMM YYYY") != case test.format("MMMM YYYY") && <GoArrowLeft onClick={this.secondPrevious}/>}<span className="month-label">{this.state.secondMonth.format("MMMM YYYY")}</span><GoArrowRight onClick={this.secondNext}/></div>
                         <div className="row day-names">
                             <span className="day">{this.props.t("day_1")}</span>
                             <span className="day">{this.props.t("day_2")}</span>
