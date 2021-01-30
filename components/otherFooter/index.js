@@ -1,4 +1,4 @@
-import React,{Component}from'react'
+import React,{Component}from'react'.
 import dynamic from'next/dynamic';
 import Link from'next/link'
 import styled from'styled-components'
@@ -20,7 +20,6 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         </section>
       <p style={{color:`white`,fontSize:`13px`,padding:`0px`,margin:`0px`}}>© 2018 by EL CARDENAL HOTEL</p>
       <section>
-        <div style={{background:`center / cover no-repeat url(paypal.png)`,width:`63px`,height:`28px`,borderRadius:`5px`,marginRight:`10px`}}></div>
         <div style={{background:`center / cover no-repeat url(master.png)`,width:`51px`,height:`27px`,borderRadius:`5px`,marginRight:`10px`}}></div>
         <div style={{background:`center / cover no-repeat url(visa.png)`,width:`51px`,height:`27px`,borderRadius:`5px`,marginRight:`10px`}}></div>
       </section>
