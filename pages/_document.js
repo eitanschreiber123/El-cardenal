@@ -8,7 +8,7 @@ export default class SiteDocument extends Document{
     return(<Html>
         <Head>
           <meta charSet='utf-8'/>
-          <title>New idc</title>
+          <title>El cardenal</title>
           <base href="/"/>
           <meta name='viewport'content='initial-scale=1.0, width=device-width'/>
           <link rel='stylesheet'type='text/css'href='https://cdnjs.cloudflare.com/ajax/libs/sanitize.css/2.0.0/sanitize.min.css'/>
