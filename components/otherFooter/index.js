@@ -1,4 +1,4 @@
-import React,{Component}from'react'.
+import React,{Component}from'react';
 import dynamic from'next/dynamic';
 import Link from'next/link'
 import styled from'styled-components'
