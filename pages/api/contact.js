@@ -1,12 +1,10 @@
 import nodemailer from "nodemailer"
 const emailPass="remi2017"
 const transporter=nodemailer.createTransport({host:"smtp.gmail.com",port:465,secure:true,auth:{user:"elcardenalhotel@gmail.com",pass:emailPass},tls:{rejectUnauthorized:false}})
-export default async(req,res)=>{
-    const{senderMail,sendTo,rooms,date,payment,price,people,food}=req.body
+export default async(req,res)=>{const{senderMail,sendTo,rooms,date,payment,price,people,food}=req.body
     if(sendTo===""||rooms===""||date===""||payment===""||people[0]==0||food==``){res.status(403).send("")
         return
-    }
-    const mailerRes=await mailer({senderMail,sendTo,rooms,date,payment,price,people,food})
+    }const mailerRes=await mailer({senderMail,sendTo,rooms,date,payment,price,people,food})
     res.send(mailerRes)
 }
 const mailer=({senderMail,sendTo,rooms,date,payment,price,people,food})=>{const message={senderMail,to:`${sendTo}`,subject:`El Cardenal Hotel`,

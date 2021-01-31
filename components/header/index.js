@@ -33,7 +33,7 @@ class Header extends Component {
 checkHeight=()=>this.setState({w:window.innerHeight})
 changeLang=n=>{this.setState({active:n})
 i18n.changeLanguage(n)
-this.props.func && this.props.func()}
+this.props.func&&this.props.func()}
 setOpen=()=>this.setState({open:!this.state.open});
   render(){
     return(<Wrapper>

@@ -22,20 +22,14 @@ export default moment.defineLocale('es',{months:'enero_febrero_marzo_abril_mayo_
     weekdaysParseExact:true,
     longDateFormat:{LT:'H:mm',LTS:'H:mm:ss',L:'DD/MM/YYYY',LL:'D [de] MMMM [de] YYYY',LLL:'D [de] MMMM [de] YYYY H:mm',LLLL:'dddd, D [de] MMMM [de] YYYY H:mm'},
     calendar:{sameDay:function(){return'[hoy a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-        },
-        nextDay:function(){return'[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-        },
-        nextWeek:function(){return'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-        },
-        lastDay:function(){return'[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
-        },
-        lastWeek:function(){return('[el] dddd [pasado a la' +
+        },nextDay:function(){return'[mañana a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+        },nextWeek:function(){return'dddd [a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+        },lastDay:function(){return'[ayer a la' + (this.hours() !== 1 ? 's' : '') + '] LT';
+        },lastWeek:function(){return('[el] dddd [pasado a la' +
                 (this.hours() !== 1 ? 's' : '') +
                 '] LT');
-        },
-        sameElse:'L',
-    },
-    relativeTime:{future:'en %s',past:'hace %s',s:'unos segundos',ss:'%d segundos',m:'un minuto',mm:'%d minutos',h:'una hora',hh:'%d horas',d:'un día',dd:'%d días',w:'una semana',ww:'%d semanas',M:'un mes',MM:'%d meses',y:'un año',yy:'%d años'},
+        },sameElse:'L',
+    },relativeTime:{future:'en %s',past:'hace %s',s:'unos segundos',ss:'%d segundos',m:'un minuto',mm:'%d minutos',h:'una hora',hh:'%d horas',d:'un día',dd:'%d días',w:'una semana',ww:'%d semanas',M:'un mes',MM:'%d meses',y:'un año',yy:'%d años'},
     dayOfMonthOrdinalParse:/\d{1,2}º/,
     ordinal:'%dº',
     week:{dow:1,doy:4},
