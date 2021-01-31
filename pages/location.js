@@ -6,7 +6,7 @@ import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
 import ReactPlayer from 'react-player/youtube'
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type,.second_row{display:flex;flex-wrap:wrap;justify-content:center;}main>section>div:first-of-type{margin-bottom:100px;}`
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type{display:grid;grid-template-columns:repeat(4, 200px);grid-gap:20px;}@media(max-width:900px){main>section>div:first-of-type{grid-template-columns:repeat(3, 200px);}}@media(max-width:800px){main>section>div:first-of-type{grid-template-columns:repeat(2, 200px);}}@media(max-width:700px){main>section>div:first-of-type{grid-template-columns:repeat(1, 200px);}}`
 class LocationPage extends Component{
   constructor(props) {
     super(props);
@@ -27,8 +27,6 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/hotel.jpg)`}}></div>
-            </div>
-            <div className="second_row">
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church.jpg)`}}></div>
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church2.JPG)`}}></div>
               <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/gate.JPG)`}}></div>
