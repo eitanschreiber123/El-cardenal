@@ -23,16 +23,16 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
           <section>
             <h1>{this.props.t("location")}</h1>
             <div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/hotel.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/hotel.jpg)`}}></div>
             </div>
             <div className="second_row">
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/church.jpg)`}}></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/church2.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/gate.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/hstatue.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church2.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/gate.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/statue.JPG)`}}></div>
             </div>
             <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y'controls width="100%"/>
             <p>La ciudad de loja es la capital musica de Ecuador, se encuentraen el sur del pais, es considerada un ejemplo del exito en la riqueza, religion, cultura y tradicion. En 1594, la Virgen Maria coronada de rosas fragantes se aparecio en la montaña a una doncella indigena que pastoreaba las ovejas...<br/>El Santuario de "El cisne". Su advocacion se origino desde Alemania con la leyenda de Lohengrin cabarello cristiano del Santo Grial. Aquellos antepasados antiguos deben haber visto de inmediato lo especial que era la tierra ya que los seres humanos viven mas tiempo. Loja, ciudad milenaria, cruce de diferentes culturas: nativa, judia y cristiana. En ese entorno tiene monumentos, plazas y memoriales; museos y restaurantes; danzas, comidas tradicionales y juegos. El arte en Loja es muy importante especialmente la musica, la literatura y la pintura.</p>
