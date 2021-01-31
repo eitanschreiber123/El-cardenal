@@ -25,13 +25,13 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
             <h1 style={{fontFamily:`times new roman`,fontSize:`30px`,lineHeight:`1.2em`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_2")}</h1>
             <Link href="/rooms"><a><button>{this.props.t("button")}</button></a></Link>
           </div>
-          <div>
-          <div className="award" style={{display: `grid`,width:`100%`}}>
+          <div className="award" style={{display:`grid`,width:`100%`,marginBottom:`100px`}}>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award1.png)`}}></div>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award2.jpg)`}}></div>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award2018.jpg)`}}></div>
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award2021.png)`}}></div>
           </div>
+          <div>
           <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y'controls width="100%"/>
           <h1 style={{color:`white`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_3")}</h1>
           <div>
