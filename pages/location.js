@@ -6,7 +6,7 @@ import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
 import ReactPlayer from 'react-player/youtube'
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type{display:grid;grid-template-columns:repeat(4, 200px);grid-gap:20px;}@media(max-width:900px){main>section>div:first-of-type{grid-template-columns:repeat(3, 200px);}}@media(max-width:800px){main>section>div:first-of-type{grid-template-columns:repeat(2, 200px);}}@media(max-width:700px){main>section>div:first-of-type{grid-template-columns:repeat(1, 200px);}}`
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type{align-self:center;display:grid;grid-template-columns:repeat(4,200px);grid-gap:5vh 2%;margin-bottom:100px;}@media(max-width:1000px){main>section>div:first-of-type{grid-template-columns:repeat(3,200px);}}@media(max-width:900px){main>section>div:first-of-type{grid-template-columns:repeat(2,200px);}}@media(max-width:800px){main>section>div:first-of-type{grid-template-columns:repeat(1,200px);}}`
 class LocationPage extends Component{
   constructor(props) {
     super(props);
@@ -23,14 +23,14 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
           <section>
             <h1>{this.props.t("location")}</h1>
             <div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/hotel.jpg)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church.jpg)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/church2.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/gate.JPG)`}}></div>
-              <div style={{width:`200px`,height:`200px`,margin:`3vw`,background:`center / cover no-repeat url(/location/statue.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/first.jpg)`, display:`flex`,flexDirection:`column`,justifyContent:`flex-end`}}><p style={{margin:0,width:`fit-content`,height:`fit-content`,padding:`10px`,backgroundColor:`grey`}}>Puerta de la ciudad</p></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/second.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/third.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/hotel.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/church.jpg)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/church2.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/gate.JPG)`}}></div>
+              <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/location/statue.JPG)`}}></div>
             </div>
             <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y'controls width="100%"/>
             <p>La ciudad de loja es la capital musica de Ecuador, se encuentraen el sur del pais, es considerada un ejemplo del exito en la riqueza, religion, cultura y tradicion. En 1594, la Virgen Maria coronada de rosas fragantes se aparecio en la montaña a una doncella indigena que pastoreaba las ovejas...<br/>El Santuario de "El cisne". Su advocacion se origino desde Alemania con la leyenda de Lohengrin cabarello cristiano del Santo Grial. Aquellos antepasados antiguos deben haber visto de inmediato lo especial que era la tierra ya que los seres humanos viven mas tiempo. Loja, ciudad milenaria, cruce de diferentes culturas: nativa, judia y cristiana. En ese entorno tiene monumentos, plazas y memoriales; museos y restaurantes; danzas, comidas tradicionales y juegos. El arte en Loja es muy importante especialmente la musica, la literatura y la pintura.</p>
