@@ -5,7 +5,7 @@ import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
 import {sendContactMail}from"../components/networking/mail-api"
-import Rooms from'../data/rooms'
+import Rooms from'../data'
 import moment from'moment';
 import{GoArrowLeft}from'react-icons/go';
 import{GoArrowRight}from'react-icons/go';

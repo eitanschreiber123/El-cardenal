@@ -4,7 +4,7 @@ import Link from'next/link'
 import styled from'styled-components'
 import Header from'../../components/header'
 import OtherFooter from'../../components/otherFooter'
-import Rooms from'../../data/rooms'
+import Rooms from'../../data'
 import{AiOutlineArrowLeft }from'react-icons/ai';
 import{FaWifi}from'react-icons/fa';
 import{FaShower}from'react-icons/fa';

@@ -38,6 +38,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                 <button>{this.props.t("column_2_button")}</button>
               </div>
             </div>
+            <div style={{width:`300px`,height:`300px`,background:`center / cover no-repeat url(/events/baby.jpg)`}}></div>
             <div className="special">
               <h1>{this.props.t("special")}</h1>
               <div className="special-images">

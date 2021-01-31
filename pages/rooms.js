@@ -4,7 +4,7 @@ import Link from'next/link'
 import styled from'styled-components'
 import Header from'../components/header'
 import OtherFooter from'../components/otherFooter'
-import Rooms from'../data/rooms'
+import Rooms from'../data'
 import{FaWifi,FaShower,FaPhone,FaDesktop}from'react-icons/fa';
 import{BiCloset}from'react-icons/bi';
 import{GiDesk}from'react-icons/gi';

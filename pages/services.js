@@ -69,7 +69,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               </div>
             </div>
             <div className="food">
-              <div style={{background:`center / cover no-repeat url(/services/food1.jpg)`,margin:`50px`}}></div>
+              <div style={{background:`center / cover no-repeat url(/services/cooking.jpg)`,margin:`50px`}}></div>
               <div style={{background:`center / cover no-repeat url(/services/food2.jpg)`,margin:`50px`}}></div>
               <div style={{background:`center / cover no-repeat url(/services/food3.jpg)`,margin:`50px`}}></div>
             </div>
