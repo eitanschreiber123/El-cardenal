@@ -33,6 +33,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
             <div style={{width:`200px`,height:`200px`,background:`center / cover no-repeat url(/home/award2021.png)`}}></div>
           </div>
           <ReactPlayer url='https://www.youtube.com/watch?v=69PP-mea7_Y'controls width="100%"/>
+          <ReactPlayer url="https://www.youtube.com/watch?v=0R-RVQeCn14&t"controls width="100%"/>
           <h1 style={{color:`white`,textShadow:`rgba(0, 0, 0, 0.298039) 0px 5px 0px`}}>{this.props.t("header_3")}</h1>
           <div>
             <div style={{width:`235px`,height:`276px`,background:`center / cover no-repeat url(/home/table.png)`}}></div>
