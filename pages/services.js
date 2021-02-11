@@ -12,7 +12,7 @@ import{MdEventNote,MdLocalLaundryService}from'react-icons/md';
 import{GiCoffeePot,GiMirrorMirror}from'react-icons/gi'
 import{ImAirplane}from'react-icons/im'
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;}main>section>div:first-of-type{display:grid;grid-template-columns:repeat(5,100px);grid-gap:30px 25px;}main>section>div:first-of-type>div{display:flex;flex-direction:column;text-align:center;}main>section>div:last-of-type{display:flex;flex-direction:column;margin-bottom:90px;}main>section>div:last-of-type>div{display:flex;flex-direction:row;}main>section>div:last-of-type>div>p{margin-right:50px;}h1{color:rgb(97,26,30);}.food{flex-direction:row;}.food{display:flex;flex-direction:row;width:100%;justify-content:space-evenly;}.food>div{margin:50px 0;width:200px;height:200px;}@media(max-width:800px){.food{flex-direction:column;align-items:center;}main>section>div:last-of-type>div{flex-direction:column;}main>section>div:first-of-type{grid-template-columns:repeat(4,100px);}}@media(max-width:700px){main>section>div:first-of-type{grid-template-columns:repeat(3,100px);}}@media(max-width:600px){main>section>div:first-of-type{grid-template-columns:repeat(2,100px);}}`
-class ServicesPage extends Component{
+export default withTranslation('common')(class ServicesPage extends Component{
   constructor(props){
     super(props);
     this.state={w:``}}
@@ -82,5 +82,4 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         </section>
         </main>
         <OtherFooter/>
-      </Wrapper>)}}
-export default withTranslation('common')(ServicesPage)
+      </Wrapper>)}})

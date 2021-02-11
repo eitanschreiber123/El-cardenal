@@ -11,8 +11,7 @@ const mailer=require('./mailer')
 const bodyParser=require('body-parser');
 if(!dev&&cluster.isMaster){
   for(let i=0;i<numCPUs;i++){cluster.fork();
-  }
-  cluster.on('exit',(worker,code,signal)=>{console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
+  }cluster.on('exit',(worker,code,signal)=>{console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
   });
 }else{
   const nextApp=next({ dir: '.', dev });

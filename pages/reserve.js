@@ -45,7 +45,7 @@ class Day extends Component{
 const which=[201,202,301,302,303,304];
 const start=moment()
 start.locale(`en`)
-class ReservePage extends Component{
+export default withTranslation('common')(class ReservePage extends Component{
   constructor(props){
     super(props);
     this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w: ``,food:``}}
@@ -241,5 +241,4 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
           </section>
         </main>
         <OtherFooter/>
-      </Wrapper>)}}
-export default withTranslation('common')(ReservePage)
+      </Wrapper>)}})

@@ -5,7 +5,7 @@ import styled from'styled-components'
 import {i18n,withTranslation}from'../../i18n'
 const Wrapper=styled.div`background-color:black;height:50px;width:100%;position:fixed;z-index:10;.desk{display:flex;flex-direction:row;background-color:black;height:50px;align-items:center;justify-content:space-evenly;width:100%;position:fixed;z-index:10;}.ho,.first,.last{padding:1px;color:white;background-color:rgb(97,26,30);text-decoration:none;}.ho:hover,.first:hover,.last:hover{color:rgb(97,26,30);background-color:white;}.hol{display:flex;flex-direction:row;}.hol>p{cursor:pointer;}.corr{color:rgb(97,26,30)!important;}.wrong{color:white!important;}.mob{display:none;}.bur{position:absolute;top:5%;left:2rem;display:flex;flex-direction:column;justify-content:space-around;width:2rem;height:2rem;background:transparent;border:none;cursor:pointer;padding:0;z-index:10;&:focus{outline:none;}}.mob nav a{padding:1px;color:white;background-color:rgb(97,26,30);text-decoration:none;}.mob nav a:hover{color:rgb(97,26,30);background-color:white;}.mob_wrong{color:grey;}.mob.hol{width:100%;justify-content:space-evenly;}@media(max-width: 800px){.desk{display:none;}.mob{display:flex;}}`
 const StyledMenu=styled.nav`display:flex;flex-direction:column;justify-content:center;background:#EFFFFA;transform:${({open})=>open?'translateX(0)':'translateX(-100%)'};height:100vh;text-align:left;padding:2rem;position:absolute;top:0;left:0;transition:transform 0.3s ease-in-out;justify-content:space-evenly`
-  class Menu extends Component{
+class Menu extends Component{
     constructor(props){
       super(props);
     }
@@ -20,7 +20,7 @@ class Burger extends Component{
       <div />
       <div />
     </StyledBurger>)}}
-class Header extends Component{
+export default withTranslation('header')(class Header extends Component{
   constructor(props){
     super(props);
     this.state={active:`en`,open:false,w:``}}
@@ -61,5 +61,4 @@ setOpen=()=>this.setState({open:!this.state.open});
           </div>
         </Menu>
       </section>
-      </Wrapper>)}}
-export default withTranslation('header')(Header)
+      </Wrapper>)}})
