@@ -14,8 +14,8 @@ import{BiCloset}from'react-icons/bi';
 import{GiDesk}from'react-icons/gi';
 import{i18n,withTranslation}from'../../i18n'
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}main>section>div:first-of-type>div:first-of-type{display:flex;flex-direction:row;align-items:flex-end;margin-bottom:20px;}.images{display:flex;flex-direction:column;}.images>div:last-of-type{display:flex;flex-direction:row;}.info_1,.info_3{display:flex;flex-direction:row;justify-content:space-evenly;}.info_2{display:grid;grid-template-columns:repeat(2,40%);padding-left:25%;grid-gap:20px 30px;}.info_2>div{display:flex;flex-direction:row;align-items:center;}.top{width:100%;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;}.top a{text-decoration:none;color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;}.current{width:649px;}@media(max-width:800px){main>section{width:90%;}.current{width:100%;}}`
-class EachPage extends Component {
-  constructor(props) {
+class EachPage extends Component{
+  constructor(props){
     super(props);
     this.state={active:`big1`,w:``}}
   static async getInitialProps(ctx){
@@ -26,8 +26,7 @@ class EachPage extends Component {
       window.addEventListener('resize',this.checkWidth)}
 checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
   changeImage=n=>this.setState({active:n});
-  render(){
-    return(<Wrapper style={{width:this.state.w}}>
+  render(){return(<Wrapper style={{width:this.state.w}}>
         <Header/>
         <main style={{width:this.state.w,margin:0,position:`relative`,top:`50px`,paddingTop:`90px`,paddingBottom:`90px`,display:`flex`,flexDirection:`column`,alignItems:`center`,zIndex:1,backgroundImage:`url(/roomsPage/background1.png)`,backgroundPosition:`center`,backgroundSize:`cover`,backgroundRepeat:`no-repeat`}}>
           <section>
