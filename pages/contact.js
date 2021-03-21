@@ -30,7 +30,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
             <p>{this.props.t("contact_header_2")}</p>
             <hr style={{width:`10px`}}/>
             <div>
-              <div className="ma" style={{height:`217px`,zIndex:0,marginRight:`40px`}}><MyMap style={{zIndex:0}}center={[-4.0195976,-79.2041626]}zoom={15}markers={[{position:[-4.0195976,-79.2041626]}]}/></div>
+              <div className="ma" style={{height:`217px`,zIndex:0,marginRight:`40px`}}><MyMap style={{zIndex:0}}center={[-4.019650,-79.201920]}zoom={15}markers={[{position:[-4.019650,-79.201920]}]}/></div>
               <div style={{marginRight:`40px`}}>
                 <p>Gladiolos Street 154-42, Loja 110150, Ecuador<br/>elcardenalhotel@gmail.com</p>
                 <p>Tel: +593 99 642 4583</p>
