@@ -36,10 +36,10 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                 <p>Tel: +593 99 642 4583</p>
               </div>
               <div className="contact-form">
-                <input placeholder={`${this.props.t("form_1")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,color:`rgb(206, 206, 206)`,fontSize:`17px`,lineHeight:`23.8px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.first}onChange={e=>this.setState({first:e.target.value})}/>
-                <input placeholder="Email *"style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,color:`rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.email}onChange={e=>this.setState({first:e.target.value})}/>
-                <input placeholder={`${this.props.t("form_2")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,color:`rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.second}onChange={e=>this.setState({first:e.target.value})}/>
-                <textarea placeholder={`${this.props.t("form_3")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,color:`rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}rows="5"value={this.state.email}onChange={e=>this.setState({first:e.target.value})}></textarea>
+                <input placeholder={`${this.props.t("form_1")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,fontSize:`17px`,lineHeight:`23.8px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.first}onChange={e=>this.setState({first:e.target.value})}/>
+                <input placeholder="Email *"style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.email}onChange={e=>this.setState({email:e.target.value})}/>
+                <input placeholder={`${this.props.t("form_2")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}value={this.state.second}onChange={e=>this.setState({second:e.target.value})}/>
+                <textarea placeholder={`${this.props.t("form_3")} *`}style={{marginBottom:`10px`,border:`1px solid rgb(206, 206, 206)`,fontSize:`17px`,padding:`3px 3px 3px 5px`,width:`276px`}}rows="5"value={this.state.third}onChange={e=>this.setState({third:e.target.value})}></textarea>
                 <button type="submit"onClick={this.submitForm}>{this.props.t("form_button")}</button>
               </div>
             </div>
