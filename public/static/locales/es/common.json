@@ -62,7 +62,7 @@
   "reserve_11": "Cómo le gustaría pagar",
   "reserve_12": "Pagar por adelantado",
   "reserve_13": "Pagar al momento de la llegada",
-  "reserve_14": "Reserva",
+  "r_14": "Reserva",
   "reserve_15": "Gracias",
   "day_1": "dom",
   "day_2": "lun",
@@ -74,5 +74,7 @@
   "food_1": "Quieres desayuno",
   "food_2": "si",
   "food_3": "no",
-  "special": "Habitaciones para ocasiones especiales"
+  "special": "Habitaciones para ocasiones especiales",
+  "first_input": "Nombre",
+  "second_input": "Numero de telefono"
 }

@@ -12,19 +12,7 @@ import{GoArrowRight}from'react-icons/go';
 import{i18n,withTranslation}from'../i18n'
 import axios from'axios';
 import'../components/moment/locale/es.js';
-const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;}.top_list{display:grid;grid-template-columns:repeat(3,240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;header{.vertical-center;
-        color:#FFFFFF;
-        cursor:default;
-        font-size:1.1rem;
-        display:block;
-        font-weight:bold;
-        text-transform:uppercase;
-user-select:none;.month-display{align-items:center;height:40px;background:rgb(97,26,30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97,26,30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}.day{.vertical-center;
-        flex:1;
-        height:35px;
-        border-left:solid 1px #CCCCCC;
-        cursor:pointer;
-transition:all .2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom>button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price,.food,.food>div{display:flex;flex-direction:row;}.people,.payment,.food{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price,.food>div{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button,.food input{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width:870px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
+const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;}.top_list{display:grid;grid-template-columns:repeat(3,240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;header{.vertical-center; color:#FFFFFF; cursor:default; font-size:1.1rem; display:block; font-weight:bold; text-transform:uppercase; user-select:none;.month-display{align-items:center;height:40px;background:rgb(97,26,30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97,26,30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}.day{.vertical-center; flex:1; height:35px; border-left:solid 1px #CCCCCC; cursor:pointer; transition:all.2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.inputs{display:flex;flex-direction:column!important;align-items:start!important;}.inputs>div{display:flex;align-items:center;width:100%;justify-content:space-between;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price,.food,.food>div{display:flex;flex-direction:row;}.people,.payment,.food{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price,.food>div{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button,.food input{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width:870px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
 class Week extends Component{
   render(){
     let days=[];
@@ -48,7 +36,7 @@ start.locale(`en`)
 export default withTranslation('common')(class ReservePage extends Component{
   constructor(props){
     super(props);
-    this.state={rooms:[false,false,false,false,false,false],em:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w: ``,food:``}}
+    this.state={rooms:[false,false,false,false,false,false],em:``,name:``,number:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w:``,food:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
   componentDidMount(){start.locale(`en`)
@@ -70,8 +58,8 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
       e.preventDefault();
       this.calculatePrice(this.state.firstSelected._d.getTime(),this.state.secondSelected._d.getTime());
       const senderMail=`elcardenalhotel@gmail.com`
-        const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children],this.state.food)
-        if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em:``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start,food:``})}}
+        const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children],this.state.food,this.state.name,this.state.number)
+        if(res.status<300){this.setState({lang:`en`,rooms:[false,false,false,false,false,false],thank_you:true,em:``,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,payment:``,price:null,firstMonth:start,secondMonth:start,food:``,name:``,number:``})}}
       firstPrevious=()=>{const{firstMonth}=this.state;
         this.setState({firstMonth:firstMonth.subtract(1,'month')})}
       secondPrevious=()=>{const{secondMonth}=this.state;
@@ -132,7 +120,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               moment().locale(`es`)
               return{firstMonth,secondMonth,lang:`es`}})}}
   render(){
-    const{rooms,date,em}=this.state
+    const{rooms,date,em,name,number}=this.state
     const test=moment()
     test.locale(`en`)
     return(<Wrapper style={{width:this.state.w}}>
@@ -220,7 +208,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               </div>
               <div className="bottom">
               <div style={{margin:`20px 0`,width:`100%`,display:`flex`,justifyContent:`center`}}><Link href="/services"><a><button>{this.props.t("reserve_10")}</button></a></Link></div>
-              <h1>{this.props.t("reserve_11")}</h1>
+              <h1 style={{alignSelf:`center`}}>{this.props.t("reserve_11")}</h1>
               <div className="payment">
                 <div>
                   <input type="radio"id="advance"name="pay"value="advance"onChange={e=>this.setState({payment:e.target.value})}/>
@@ -231,12 +219,22 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
                   <p>{this.props.t("reserve_13")}</p>
                 </div>
               </div>
+              <div className="inputs">
+              <div>
+              <p>{this.props.t("first_input")}</p>
+              <input type="text"id="name"name="name_name"value={name}onChange={e=>this.setState({name:e.target.value})}/>
+              </div>
+              <div>
+              <p>{this.props.t("second_input")}</p>
+              <input type="text"id="number"name="number_name"value={number}onChange={e=>this.setState({number:e.target.value})}/>
+              </div>
               <div>
               <p>Email</p>
               <input type="text"id="em"name="em_name"value={em}onChange={e=>this.setState({em:e.target.value})}/>
               </div>
-              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.food==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')}onClick={this.submitForm}>{this.props.t("reserve_14")}</button>
+              <button type="submit"disabled={this.state.rooms==[false,false,false,false,false,false]||this.state.em==``||this.state.payment==``||this.state.food==``||this.state.adults==0||this.state.secondSelected.isBefore(this.state.firstSelected)||this.state.secondSelected.isSame(this.state.firstSelected)||this.state.firstSelected==moment().startOf('day')||this.state.secondSelected==moment().startOf('day')||this.state.name==``||this.state.number==``}onClick={this.submitForm}>{this.props.t("r_14")}</button>
               {this.state.thank_you&&<p>{this.props.t("reserve_15")}</p>}
+              </div>
               </div>
           </section>
         </main>
