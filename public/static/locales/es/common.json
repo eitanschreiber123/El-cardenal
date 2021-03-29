@@ -76,5 +76,6 @@
   "food_3": "no",
   "special": "Habitaciones para ocasiones especiales",
   "first_input": "Nombre",
-  "second_input": "Numero de telefono"
+  "second_input": "Numero de telefono",
+  "op": "opcional"
 }
