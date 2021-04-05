@@ -13,8 +13,7 @@ import{i18n,withTranslation}from'../i18n'
 import axios from'axios';
 import'../components/moment/locale/es.js';
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;}.top_list{display:grid;grid-template-columns:repeat(3,240px);grid-gap:30px;}.top_list>div{display:flex;flex-direction:column;align-items:center;cursor:pointer;}.vertical-center{display:flex;justify-content:center;align-items:center;}.row{display:flex;width:100%;}.calendar{display:block;background:#FFFFFF;width:300px;border:solid 1px #CCCCCC;margin:10px auto;box-shadow:0 0 15px 0 #C0C0C0;font-size:1rem;text-align:center;font-family:sans-serif;header{.vertical-center; color:#FFFFFF; cursor:default; font-size:1.1rem; display:block; font-weight:bold; text-transform:uppercase; user-select:none;.month-display{align-items:center;height:40px;background:rgb(97,26,30);}.month-label{flex:1;}.arrow{text-align:center;flex-basis:15%;font-weight:bold;cursor:pointer;transition:background .2s;height:100%;display:flex;justify-content:center;align-items:center;}}.week{border-top:solid 1px #CCCCCC;&:first-child{border-top:none;}}.day-names{color:rgb(97,26,30);font-weight:bold;cursor:default;font-size:1rem;.day{cursor:default;&:hover{background:inherit;}}}.day{.vertical-center; flex:1; height:35px; border-left:solid 1px #CCCCCC; cursor:pointer; transition:all.2s;&:hover{background:#EFEFEF;}&:first-child{border-left:none;}&.today{background:lighten(#2875C7,45%);}&.different-month{color:#C0C0C0;}&.selected{background:rgb(97,26,30);color:#FFFFFF;}&.before{background:grey!important;color:#FFFFFF!important;cursor:not-allowed;}}}.dates{width:100%;justify-content:space-evenly;display:flex;flex-direction:row;}.bottom{display:flex;flex-direction:column;padding-left:60px;margin-bottom:30px;}.bottom>div{display:flex;flex-direction:row;align-items:center;}.inputs{display:flex;flex-direction:column!important;align-items:start!important;}.inputs>div{display:flex;align-items:center;width:100%;justify-content:space-between;}.bottom p{margin-right:10px;}.bottom input{height:fit-content;}main>section button{color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;border:none;}main>section button:hover{background-color:white;color:black;border:1px solid black;}.bottom button[type=submit]:disabled{cursor:not-allowed;}.people,.adults,.children,.payment,.payment>div,.price,.food,.food>div{display:flex;flex-direction:row;}.people,.payment,.food{width:100%;justify-content:space-evenly;}.adults,.children,.payment>div,.price,.food>div{align-items:center;text-align:center;}.adults p,.children p,.payment input,.price button,.food input{margin-right:10px;}.adults select,.children select{height:fit-content;}@media(max-width:870px){.top_list{grid-template-columns:repeat(2,240px);}.dates{flex-direction:column;align-items:center;}}@media(max-width:700px){.top_list{grid-template-columns:repeat(1,240px);}}`
-class Week extends Component{
-  render(){let days=[];
+class Week extends Component{render(){let days=[];
     let{date,isCurrentMonth,isToday,number,startingPoint,select,selected,month,d}=this.props;
     for(var i=0;i<7;i++){let day={name:date.format("dd").substring(0, 1),number:date.date(),isCurrentMonth:date.month()===month.month(),isToday:date.isSame(new Date(),"day"),date:date};
       days.push(<span key={day.date.toString()}className={"day" + (day.isToday?" today":"") + (day.isCurrentMonth?"":" different-month") + (day.date.isSame(selected)?" selected":"") + (day.date.isBefore(day.startingPoint)?" before":"")}onClick={!day.date.isBefore(day.startingPoint)?()=>select(day):null}>{day.number}</span>);
@@ -25,9 +24,7 @@ class Week extends Component{
 const which=[201,202,301,302,303,304];
 const start=moment()
 start.locale(`en`)
-export default withTranslation('common')(class ReservePage extends Component{
-  constructor(props){
-    super(props);
+export default withTranslation('common')(class ReservePage extends Component{constructor(props){super(props);
     this.state={rooms:[false,false,false,false,false,false],em:``,name:``,number:``,firstMonth:start,secondMonth:start,firstSelected:start.startOf('day'),firstShow:false,secondSelected:start.startOf('day'),secondShow:false,thank_you:false,adults:0,children:0,payment:``,price:null,w:``,food:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}
@@ -93,17 +90,17 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         return weeks;
       };
       newPrice=(s,e)=>{let per;
-        const ch=this.state.children*12;
-        if(this.state.food==`yes`){if(this.state.adults==1){per=31;
-          }else if(this.state.adults==2){per=42;
-          }else if(this.state.adults==3){per=63;
+        const ch=this.state.children*7;
+        if(this.state.food==`yes`){if(this.state.adults==1){per=26;
+        }else if(this.state.adults==2){per=37;
+        }else if(this.state.adults==3){per=58;
           }else{const extra=(this.state.adults-3)*.25;
-            per=63+(63*extra);
-          }}else{if(this.state.adults==1){per=27;
-          }else if(this.state.adults==2){per=36;
-          }else if(this.state.adults==3){per=55;
+            per=58+(58*extra);
+          }}else{if(this.state.adults==1){per=22;
+          }else if(this.state.adults==2){per=31;
+          }else if(this.state.adults==3){per=50;
           }else{const extra=(this.state.adults-3)*.25;
-            per=55+(55*extra);
+            per=50+(50*extra);
           }}this.setState({price:((e-s)/(1000*3600*24))*(per+ch)})
           return((e-s)/(1000*3600*24))*(per+ch);
       }

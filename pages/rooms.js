@@ -10,9 +10,7 @@ import{BiCloset}from'react-icons/bi';
 import{GiDesk}from'react-icons/gi';
 import{i18n,withTranslation}from'../i18n'
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;}.list{display:flex;flex-direction:column;}.each{display:flex;flex-direction:row;height:170px;margin-bottom:50px;align-items:flex-end;}ul{list-style-type:none;}.middle{height:100%;display:flex;flex-direction:column;margin-right:50px;}.icons{display:flex;flex-direction:row;}.list button{color:white;background-color:black;padding:10px 20px;height:fit-content;width:fit-content;border:none;}a{text-decoration:none;color:black;}.top{width:100%;display:flex;flex-direction:row;justify-content:space-evenly;align-items:center;}.top a{text-decoration:none;color:white;background-color:black;padding:10px 20px;width:fit-content;height:fit-content;}@media(max-width:800px){.each{flex-direction:column;height:auto;}.icons{margin-bottom:20px;}}`
-export default withTranslation('common')(class RoomsPage extends Component{
-  constructor(props){
-    super(props);
+export default withTranslation('common')(class RoomsPage extends Component{constructor(props){super(props);
     this.state={w:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}

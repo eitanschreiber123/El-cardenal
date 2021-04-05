@@ -9,9 +9,7 @@ import {sendOtherMail}from"../components/networking/contact-api"
 import axios from'axios';
 const MyMap=dynamic(()=>import('components/map'),{ssr:false});
 const Wrapper=styled.div`font-family:Playfair Display;main{height:120vh;}main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0 20px;}main>section>div:first-of-type{display:flex;flex-direction:row;margin-bottom:100px;}main>section>div:first-of-type button{padding:10px;background-color:black;color:white;width:fit-content;border:none;}.contact-form{display:flex;flex-direction:column;align-items:flex-end;}.ma{width:310px;}@media(max-width: 850px){main>section>div:first-of-type{flex-direction: column;width: 100%;align-items:flex-start;}main{height:150vh;}main>section{width:90%}.ma{width:100%;}}`
-export default withTranslation('common')(class ContactPage extends Component{
-  constructor(props){
-    super(props);
+export default withTranslation('common')(class ContactPage extends Component{constructor(props){super(props);
     this.state={first:``,email:``,second:``,third:``,w: ``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}

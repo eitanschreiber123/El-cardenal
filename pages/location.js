@@ -7,9 +7,7 @@ import OtherFooter from'../components/otherFooter'
 import{i18n,withTranslation}from'../i18n'
 import ReactPlayer from 'react-player/youtube'
 const Wrapper=styled.div`font-family:Playfair Display;main>section{background-color:white;display:flex;flex-direction:column;align-items:center;padding:0px 20px;width:90%;padding-bottom:100px;}main>section>div:first-of-type{align-self:center;display:grid;grid-template-columns:repeat(4,200px);grid-gap:5vh 2%;margin-bottom:100px;}@media(max-width:1000px){main>section>div:first-of-type{grid-template-columns:repeat(3,200px);}}@media(max-width:800px){main>section>div:first-of-type{grid-template-columns:repeat(2,200px);}}@media(max-width:700px){main>section>div:first-of-type{grid-template-columns:repeat(1,200px);}}`
-export default withTranslation('common')(class LocationPage extends Component{
-  constructor(props){
-    super(props);
+export default withTranslation('common')(class LocationPage extends Component{constructor(props){super(props);
     this.state={w:``}}
   static async getInitialProps(ctx){
     return{namespacesRequired:['common','header']}}

@@ -3,9 +3,7 @@ import dynamic from'next/dynamic';
 import Link from'next/link'
 import styled from'styled-components'
 const Wrapper=styled.div`background-color:black;display:flex;flex-direction:row;padding:15px 0;justify-content:space-evenly;align-items:center;position:relative;z-index:10;.left{display:flex;flex-direction:row;margin:30px;}p{font-family: Playfair Display;}.right{display:grid;grid-template-columns:repeat(3,51px);grid-gap:15px;}@media(max-width:800px){flex-direction:column;align-items:center;.left{margin:30px 0;width:100%;justify-content:space-evenly;}.right{margin:30px 0;grid-gap:30px 30vw;}}`
-export default class OtherFooter extends Component{
-  constructor(props){
-    super(props);
+export default class OtherFooter extends Component{constructor(props){super(props);
     this.state={w:``}}
     componentDidMount(){this.checkWidth()
       window.addEventListener('resize',this.checkWidth)}
