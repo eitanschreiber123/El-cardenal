@@ -32,19 +32,13 @@ export default withTranslation('common')(class ReservePage extends Component{con
     this.checkWidth()
     window.addEventListener('resize',this.checkWidth)}
 checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:350px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:400px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:450px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:500px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:550px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:600px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:650px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:700px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:750px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:800px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:850px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:900px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:950px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1000px)')){this.setState({w:window.innerWidth})}else if(window.matchMedia('(max-width:1050px)')){this.setState({w:window.innerWidth})}else{this.setState({w:`100%`})}}
-  selectRoom = n => {
-    const y=n
-    this.setState(prev => {
-      const rooms = prev.rooms.map((r,ind) => {
-        if (ind==y) {
-          return !r;
-        } else {
-          return r;
+  selectRoom=n=>{const y=n
+    this.setState(prev=>{const rooms=prev.rooms.map((r,ind)=>{if(ind==y){return !r;
+        }else{return r;
         }})
-      return{rooms,thank_you:false};
+        return{rooms,thank_you:false};
     })}
-    submitForm=async e=>{
-      e.preventDefault();
+    submitForm=async e=>{e.preventDefault();
       this.newPrice(this.state.firstSelected._d.getTime(),this.state.secondSelected._d.getTime());
       const senderMail=`elcardenalhotel@gmail.com`
         const res=await sendContactMail(senderMail,this.state.em,which.filter((w,ind)=>this.state.rooms[ind]),[this.state.firstSelected.format("ll"),this.state.secondSelected.format("ll")],this.state.payment,this.state.price,[this.state.adults,this.state.children],this.state.food,this.state.name,this.state.number)
@@ -59,35 +53,29 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
         this.setState({secondMonth:secondMonth.add(1,'month')})}
       firstSelect=day=>this.setState({firstShow:true,firstSelected:day.date,firstMonth:day.date.clone(),secondMonth:day.date.clone()})
       secondSelect=day=>this.setState({secondShow:true,secondSelected:day.date,secondMonth:day.date.clone()})
-      renderFirstWeeks(){
-        let weeks=[];
+      renderFirstWeeks(){let weeks=[];
         let done=false;
         let date=this.state.firstMonth.clone().startOf("month").add("w" -1).day("Sunday");
         let count=0;
         let monthIndex=date.month();
         const{firstSelected,firstMonth}=this.state;
-        while(!done){
-          weeks.push(<Week key={date}date={date.clone()}month={firstMonth}select={(day)=>this.firstSelect(day)}selected={firstSelected}startingPoint={moment().startOf('day')}/>);
+        while(!done){weeks.push(<Week key={date}date={date.clone()}month={firstMonth}select={(day)=>this.firstSelect(day)}selected={firstSelected}startingPoint={moment().startOf('day')}/>);
           date.add(1,"w");
           done=count++ >2&&monthIndex!==date.month();
           monthIndex=date.month();
-        }
-        return weeks;
+        }return weeks;
       };
-      renderSecondWeeks(){
-        let weeks=[];
+      renderSecondWeeks(){let weeks=[];
         let done=false;
         let date=this.state.secondMonth.clone().startOf("month").add("w" -1).day("Sunday");
         let count=0;
         let monthIndex=date.month();
         const{secondSelected,secondMonth}=this.state;
-        while(!done){
-          weeks.push(<Week key={date}date={date.clone()}month={secondMonth}select={(day)=>this.secondSelect(day)}selected={secondSelected}startingPoint={moment().startOf('day')}/>);
+        while(!done){weeks.push(<Week key={date}date={date.clone()}month={secondMonth}select={(day)=>this.secondSelect(day)}selected={secondSelected}startingPoint={moment().startOf('day')}/>);
           date.add(1,"w");
           done=count++ >2&&monthIndex!==date.month();
           monthIndex=date.month();
-        }
-        return weeks;
+        }return weeks;
       };
       newPrice=(s,e)=>{let per;
         const ch=this.state.children*7;
@@ -104,8 +92,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
           }}this.setState({price:((e-s)/(1000*3600*24))*(per+ch)})
           return((e-s)/(1000*3600*24))*(per+ch);
       }
-      changeEverything=()=>{
-          if(this.state.lang==`es`){
+      changeEverything=()=>{if(this.state.lang==`es`){
             this.setState(prev=>{
               const firstMonth=prev.firstMonth
               const secondMonth=prev.secondMonth
@@ -120,8 +107,7 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
               secondMonth.locale(`es`)
               moment().locale(`es`)
               return{firstMonth,secondMonth,lang:`es`}})}}
-  render(){
-    const{rooms,date,em,name,number,price}=this.state
+  render(){const{rooms,date,em,name,number,price}=this.state
     const test=moment()
     test.locale(`en`)
     return(<Wrapper style={{width:this.state.w}}>
