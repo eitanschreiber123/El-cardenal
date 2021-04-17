@@ -13,8 +13,7 @@ if(!dev&&cluster.isMaster){
   for(let i=0;i<numCPUs;i++){cluster.fork();
   }cluster.on('exit',(worker,code,signal)=>{console.error(`Node cluster worker ${worker.process.pid} exited: code ${code}, signal ${signal}`);
   });
-}else{
-  const nextApp=next({ dir: '.', dev });
+}else{const nextApp=next({ dir: '.', dev });
   const nextHandler=nextApp.getRequestHandler();
   nextApp.prepare().then(() => {const server=express();
       server.use(cors());
@@ -24,9 +23,7 @@ if(!dev&&cluster.isMaster){
     mailer({senderMail,sendTo,rooms,date,payment,price,people,food}).then(()=>{res.send('success')}).catch((error)=>{res.send('badddd')})})
   server.post('/api/other',(req,res)=>{const{senderMail,name,origin,affair,message}=req.body
 mailer({senderMail,name,origin,affair,message}).then(()=>{res.send('success')}).catch((error)=>{res.send('badddd')})})
-      if(!dev){
-        server.use(function(req,res,next){
-          var proto=req.headers["x-forwarded-proto"];
+      if(!dev){server.use(function(req,res,next){var proto=req.headers["x-forwarded-proto"];
           if(proto==="https"){res.set({'Strict-Transport-Security':'max-age=31557600'});
             return next();
           }res.redirect("https://" + req.headers.host + req.url);

@@ -79,16 +79,16 @@ checkWidth=()=>{if(window.matchMedia('(max-width:300px)')){this.setState({w:wind
       };
       newPrice=(s,e)=>{let per;
         const ch=this.state.children*7;
-        if(this.state.food==`yes`){if(this.state.adults==1){per=26;
-        }else if(this.state.adults==2){per=37;
-        }else if(this.state.adults==3){per=58;
+        if(this.state.food==`yes`){if(this.state.adults==1){per=24;
+        }else if(this.state.adults==2){per=33;
+        }else if(this.state.adults==3){per=46;
           }else{const extra=(this.state.adults-3)*.25;
-            per=58+(58*extra);
+            per=46+(46*extra);
           }}else{if(this.state.adults==1){per=22;
-          }else if(this.state.adults==2){per=31;
-          }else if(this.state.adults==3){per=50;
+          }else if(this.state.adults==2){per=29;
+          }else if(this.state.adults==3){per=44;
           }else{const extra=(this.state.adults-3)*.25;
-            per=50+(50*extra);
+            per=44+(44*extra);
           }}this.setState({price:((e-s)/(1000*3600*24))*(per+ch)})
           return((e-s)/(1000*3600*24))*(per+ch);
       }

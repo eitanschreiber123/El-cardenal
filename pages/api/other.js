@@ -7,6 +7,5 @@ export default async(req,res)=>{const{senderMail,name,origin,affair,message}=req
     }const mailerRes=await mailer({senderMail,name,origin,affair,message})
     res.send(mailerRes)
 }
-const mailer=({ senderMail,name,origin,affair,message})=>{
-    const emailBody={senderMail,to:`${senderMail}`,subject:`Message`,text:`name: ${name}affair: ${affair}message: ${message}`,replyTo:origin}
+const mailer=({senderMail,name,origin,affair,message})=>{const emailBody={senderMail,to:`${senderMail}`,subject:`Message`,text:`name: ${name}affair: ${affair}message: ${message}`,replyTo:origin}
     return new Promise((resolve,reject)=>{transporter.sendMail(emailBody,(error,info)=>error?reject(error):resolve(info))})}
