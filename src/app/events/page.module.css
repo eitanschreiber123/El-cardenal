@@ -1,0 +1,11 @@
+.send {
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: white;
+    border: 1px solid black;
+    color:black;
+}
+.send:hover {
+    background-color: black;
+    color: white;
+}

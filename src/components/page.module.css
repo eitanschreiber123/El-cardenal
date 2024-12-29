@@ -1,0 +1,51 @@
+.desk {
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    height: 50px;
+    -webkit-box-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    position: fixed;
+    z-index: 10;
+}
+.desk a, .mob a {
+    background-color:rgb(97, 26, 30);
+    color:white;
+}
+.desk a:hover, .mob a:hover {
+    color: rgb(97, 26, 30);
+    background-color: white;
+}
+.mob {
+    display: none;
+}
+@media (max-width: 800px) {
+    .desk {
+        display: none;
+    }
+    .mob {
+        display: flex;
+
+    }
+    .footer {
+        flex-direction: column;
+    }
+    .first {
+        width:100%;
+        max-width: none;
+        margin: 20px 0;
+      }
+      .last {
+        width:100%;
+        max-width: none;
+        margin: 20px 0;
+      }
+}
+.first {
+  max-width:126px;
+}
+.last {
+  max-width:183px;
+}

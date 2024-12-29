@@ -1,95 +1,86 @@
+"use client"
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
+import Header from '../components/header'
+import Footer from '../components/footer'
+import { useLang } from "@/app/context/lang";
 
-export default function Home() {
+const Home = () => {
+  const [trans, setTrans] = useState({})
+  const {lang, switchLang} = useLang()
+  useEffect(() => {
+    const loadTrans = async () => {
+      const module = await import(`../../public/locales/${lang}/common.json`);
+        setTrans(module.default);
+    }
+    loadTrans()
+  }, [lang])
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
+    <div>
+      <Header/>
+      <main style={{margin:0,paddingTop:'50px',paddingBottom:'50px',position:'relative',top:'50px',display:'flex',alignItems:'center',flexDirection: 'column',zIndex: 1,backgroundAttachment: 'fixed',backgroundImage: "url('/home/background1.png')",backgroundPosition: 'center center',backgroundSize: 'cover',backgroundRepeat: 'no-repeat',backgroundColor: 'grey',backgroundBlendMode: 'soft-light',width:'100vw'}}>
+        <div style={{display: 'flex',flexDirection: 'column',alignItems: 'center',marginBottom: '50px'}}>
+      <h1 style={{fontSize: '100px',
+    lineHeight: '1.2em',
+    textShadow: 'rgba(0, 0, 0, 0.298) 0px 5px 0px',
+    color: 'white',
+    marginBottom: '20px',
+    fontWeight: 500}}>{trans.header_1}</h1>
+        <h1 style={{fontSize: '30px',
+    lineHeight: '1.2em',
+    textShadow: 'rgba(0, 0, 0, 0.298) 0px 5px 0px',marginBottom:'20px',color:'black'}}>{trans.header_2}</h1>
+        <Link href="/rooms"><button className={styles.rooms} style={{width: '261px',
+    height: '40px',color:'black'}}>{trans.button}</button></Link>
+    </div>
+        <section style={{display:'flex',flexWrap:'wrap',width:'100%',justifyContent:'space-evenly',marginBottom:'20px'}}>
         <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.js</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
+      src="/award2023.jpg"
+      width={200}
+      height={200}
+      alt="Picture of the author"
+    />
+          <Image
+      src="/award2024.jpg"
+      width={200}
+      height={200}
+      alt="Picture of the author"
+    />
+        </section>
+        <video style={{marginBottom:'20px'}} width="400" height="240" controls preload="auto" muted autoplay loop>
+      <source src="\VID-20241120-WA0002.mp4" type="video/mp4" />
+    </video>
+        <section style={{display:'flex',flexDirection:'column',alignItems:'center'}}>
+          <h1 style={{color: 'white',
+    textShadow: 'rgba(0, 0, 0, 0.298) 0px 5px 0px',marginBottom:'20px'}}>{trans.header_3}</h1>
+          <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fill, minmax(235px, 1fr))',maxWidth:'70vw',marginBottom:'20px'}}>
+          <Image src="/home/table.png" width={235} height={276} alt="Picture of the author"/>
+          <div style={{width:'235px',color:'black',height:'276px',display:'flex',flexDirection:'column',textAlign:'center',backgroundColor:'white',padding:'30px 10px 0px'}}>
+            <h1 style={{textAlign:'center',color: 'rgb(97, 26, 30)'}}>{trans.grid_header_1}</h1>
+            <p style={{textAlign:'center'}}>{trans.grid_p_1}</p>
+          </div>
+          <Image src="/home/enter.png" width={235} height={276} alt="Picture of the author"/>
+          <div style={{width:'235px',color:'black',height:'276px',display:'flex',flexDirection:'column',textAlign:'center',backgroundColor:'white',padding:'30px 10px 0px'}}>
+            <h1 style={{textAlign:'center',color: 'rgb(97, 26, 30)'}}>{trans.grid_header_2}</h1>
+            <p style={{textAlign:'center'}}>{trans.grid_p_2}</p>
+          </div>
+          <div style={{width:'235px',color:'black',height:'276px',display:'flex',flexDirection:'column',textAlign:'center',backgroundColor:'white',padding:'30px 10px 0px'}}>
+            <h1 style={{textAlign:'center',color: 'rgb(97, 26, 30)'}}>{trans.grid_header_3}</h1>
+            <p style={{textAlign:'center'}}>{trans.grid_p_3}</p>
+          </div>
+          <Image src="/home/view.png" width={235} height={276} alt="Picture of the author"/>
+          <div style={{width:'235px',color:'black',height:'276px',display:'flex',flexDirection:'column',textAlign:'center',backgroundColor:'white',padding:'30px 10px 0px'}}>
+            <h1 style={{textAlign:'center',color: 'rgb(97, 26, 30)'}}>{trans.grid_header_4}</h1>
+            <p style={{textAlign:'center'}}>{trans.grid_p_4}</p>
+          </div>
+          <Image src="/home/corner.png" width={235} height={276} alt="Picture of the author"/>
+          </div>
+        </section>
       </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
+export default Home

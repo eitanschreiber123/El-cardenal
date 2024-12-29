@@ -3,9 +3,6 @@
   --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
   --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
 
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
   display: grid;
   grid-template-rows: 20px 1fr 20px;
   align-items: center;
@@ -21,9 +18,6 @@
     --gray-rgb: 255, 255, 255;
     --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
     --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
   }
 }
 
@@ -107,25 +101,6 @@ a.secondary {
 .footer img {
   flex-shrink: 0;
 }
-
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
 @media (max-width: 600px) {
   .page {
     padding: 32px;
@@ -165,4 +140,57 @@ a.secondary {
   .logo {
     filter: invert();
   }
+}
+
+.rooms {
+  background-color: white;
+    border: 1px solid black;
+}
+.rooms:hover {
+  background-color: rgb(97, 26, 30);
+  border: 1px solid white;
+}
+.desk {
+  display: flex;
+  flex-direction: row;
+  background-color: black;
+  height: 50px;
+  -webkit-box-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+}
+.desk a {
+  background-color:rgb(97, 26, 30);
+  color:white;
+}
+.desk a:hover {
+  color: rgb(97, 26, 30);
+  background-color: white;
+}
+.mob {
+  display: none;
+}
+@media (max-width: 800px) {
+  .desk {
+      display: none;
+  }
+  .mob {
+      display: flex;
+  }
+  .footer {
+      flex-direction: column;
+  }
+  .first {
+      width:100%;
+      max-width: none;
+      margin: 20px 0;
+    }
+    .last {
+      width:100%;
+      max-width: none;
+      margin: 20px 0;
+    }
 }

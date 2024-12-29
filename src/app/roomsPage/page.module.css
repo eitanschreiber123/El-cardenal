@@ -1,0 +1,34 @@
+.each {
+    display: flex;
+    height: auto;
+    margin-bottom: 50px;
+    align-items: flex-end;
+  }
+  
+  .each img {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+  }
+  
+  @media (max-width: 800px) {
+    .each {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      margin-bottom: 30px;
+    }
+  
+    .each img {
+      margin-bottom: 10px;
+    }
+  
+    .each div {
+      margin: 10px 0;
+    }
+  
+    .each button {
+      margin-top: 10px;
+    }
+  }
