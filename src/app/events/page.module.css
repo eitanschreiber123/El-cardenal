@@ -9,3 +9,16 @@
     background-color: black;
     color: white;
 }
+.first {
+    margin-right:50px;
+}
+.firstImage {
+    margin-right:20px;
+}
+@media(max-width:1000px) {
+    .first{margin-right:0;}
+    .firstImage {
+        margin-right:0;
+        margin-bottom: 20px;
+    }
+}

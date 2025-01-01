@@ -29,8 +29,7 @@ const Home = () => {
     display: 'flex',
     marginBottom:'50px',
     alignItems: 'space-evenly',flexWrap:'wrap',justifyContent:'center'}}>
-            <div style={{display: 'flex',
-            marginRight: '50px',
+            <div className={styles.first} style={{display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
     width: '442px',
@@ -75,13 +74,13 @@ const Home = () => {
     />
             <h2 style={{color: 'rgb(97, 26, 30)',margin:'14px 0'}}>{trans.special}</h2>
             <div style={{marginBottom:'20px'}}>
-            <div style={{display:'flex', margin:'20px 0',flexWrap:'wrap'}}>
+            <div style={{display:'flex', margin:'20px 0',flexWrap:'wrap',justifyContent:'center'}}>
             <Image
       src="/events/special1.jpg"
       width={300}
       height={300}
       alt="Picture of the author"
-      style={{marginRight:'20px'}}
+      className={styles.firstImage}
     />
     <Image
       src="/events/special3.jpg"
@@ -90,13 +89,13 @@ const Home = () => {
       alt="Picture of the author"
     />
               </div>
-              <div style={{display:'flex',flexWrap:'wrap'}}>
+              <div style={{display:'flex',flexWrap:'wrap',justifyContent:'center'}}>
               <Image
       src="/events/special2.jpg"
       width={300}
       height={300}
       alt="Picture of the author"
-      style={{marginRight:'20px'}}
+      className={styles.firstImage}
     />
     <Image
       src="/events/special4.jpg"
