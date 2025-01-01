@@ -14,6 +14,7 @@ import { FaPhone } from 'react-icons/fa';
 import { FaDesktop } from 'react-icons/fa';
 import { BiCloset } from 'react-icons/bi';
 import { GiDesk } from 'react-icons/gi';
+import styles from './page.module.css'
 
 const Home = ({ params }) => {
   const { rooms } = params;
@@ -33,18 +34,18 @@ const Home = ({ params }) => {
   return (
     <div style={{ margin: 0, position: 'relative', top: '50px', paddingTop: '90px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 1, backgroundImage: "url('/events/background1.png')", backgroundPosition: 'center center', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
       <Header />
-      <main style={{ backgroundColor: 'white', color: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0px 20px' }}>
+      <main className={styles.extend} style={{ backgroundColor: 'white', color: 'black', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0px 20px' }}>
         <div style={{ width: '100%', display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
           <h1 style={{ color: 'black', margin: '.67em 0' }}>{trans.rooms_1}</h1>
           <Link style={{ color: 'white', backgroundColor: 'black', padding: '10px 20px' }} href="/reserve">{trans.rooms_2}</Link>
         </div>
-        <div>
+        <div className={styles.extend}>
           <div style={{ display: `flex`, flexDirection: `row`, alignItems: `flex-end`, marginBottom: `20px` }}><Link href="/roomsPage"><AiOutlineArrowLeft style={{ color: `black`, width: `25px`, height: `25px` }} /></Link><h1 style={{ margin: 0, lineHeight: 1, color: 'black' }}>{rooms}</h1></div>
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className={styles.extend} style={{ display: 'flex', flexDirection: 'column' }}>
             {topMedia.type === 'image' ? (
-              <div className="current" style={{ height: `408px`, background: `center / cover no-repeat url(/rooms/${rooms}/big${topMedia.source}.jpg)`, marginBottom: `20px`, width: '649px' }}></div>
+              <div className={styles.current} style={{ height: `408px`, background: `center / cover no-repeat url(/rooms/${rooms}/big${topMedia.source}.jpg)`, marginBottom: `20px`}}></div>
             ) : (
-              <video className="current" style={{ height: `408px`, marginBottom: `20px`, width: '649px' }} controls>
+              <video className={styles.current} style={{ height: `408px`, marginBottom: `20px`}} controls>
                 <source src={`/rooms/${rooms}/VID${rooms}.mp4`} type="video/mp4" />
               </video>
             )}

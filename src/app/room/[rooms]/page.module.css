@@ -1,4 +1,5 @@
 .current {width:649px;}
 @media(max-width:800px) {
     .current{width:100%;}
+    .extend{width:100%;}
 }

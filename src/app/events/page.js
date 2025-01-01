@@ -42,9 +42,9 @@ const Home = () => {
       alt="Picture of the author"
     />
                 <h2 style={{color: 'rgb(97, 26, 30)',margin:'14px 0'}}>CLUB El CARDENAL</h2>
-                <p style={{color:'black',margin:'16px 0'}}>{trans.column_1_p_1}</p>
-                <p style={{color:'black',margin:'16px 0'}}>{trans.column_1_p_2}</p>
-                <p style={{color:'black',margin:'16px 0'}}>{trans.column_1_p_3}</p>
+                <p className={styles.mar} style={{color:'black'}}>{trans.column_1_p_1}</p>
+                <p className={styles.mar} style={{color:'black'}}>{trans.column_1_p_2}</p>
+                <p className={styles.mar} style={{color:'black'}}>{trans.column_1_p_3}</p>
             </div>
             <div style={{display: 'flex',
     flexDirection: 'column',

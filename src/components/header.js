@@ -42,6 +42,12 @@ const Header = () => {
       <div style={{width:'2rem',height:'0.25rem',background:open?'#0D0C1D':'#EFFFFA',borderRadius:'10px',transition:'all 0.3s linear',position:'relative',transformOrigin:'1px',opacity:open?'0':'1',transform:open?'translateX(20px)':'translateX(0)'}}/>
       <div style={{width:'2rem',height:'0.25rem',background:open?'#0D0C1D':'#EFFFFA',borderRadius:'10px',transition:'all 0.3s linear',position:'relative',transformOrigin:'1px',transform:open?'rotate(-45deg)':'rotate(0)'}}/>
     </div>
+    <Image
+      src="/header.png"
+      width={151}
+      height={123}
+      alt="Picture of the author"
+    />
         {open&&<Link href="/"><div style={{display:open?`none`:`block`,width:`151px`,height:`123px`,background:`center / cover no-repeat url(header.png)`}}></div></Link>}
         <div style={{height:'100vh',display:'flex',flexDirection:'column',justifyContent:'center',background:'#EFFFFA',transform:open?'translateX(0)':'translateX(-100%)',height:'100vh',textAlign:'left',padding:'2rem',position:'absolute',top:0,left:0,transition:'transform 0.3s ease-in-out',justifyContent:'space-evenly'}}>
           <Link href="/roomsPage"><a>{trans.bedrooms}</a></Link>

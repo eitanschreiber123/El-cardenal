@@ -11,6 +11,6 @@
 @media(max-width:620px){
     .grid {grid-template-columns: repeat(3, 100px);}
 }
-@media(max-width:435px){
+@media(max-width:480px){
     .grid {grid-template-columns: repeat(2, 100px);}
 }

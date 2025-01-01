@@ -15,10 +15,16 @@
 .firstImage {
     margin-right:20px;
 }
+.mar {
+    margin: 16px 0;
+}
 @media(max-width:1000px) {
     .first{margin-right:0;}
     .firstImage {
         margin-right:0;
         margin-bottom: 20px;
+    }
+    .mar {
+        margin: 16px 10px;
     }
 }
