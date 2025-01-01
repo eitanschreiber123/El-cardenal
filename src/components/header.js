@@ -47,6 +47,7 @@ const Header = () => {
       width={151}
       height={123}
       alt="Picture of the author"
+      style={{position:'fixed',right:0}}
     />
         {open&&<Link href="/"><div style={{display:open?`none`:`block`,width:`151px`,height:`123px`,background:`center / cover no-repeat url(header.png)`}}></div></Link>}
         <div style={{height:'100vh',display:'flex',flexDirection:'column',justifyContent:'center',background:'#EFFFFA',transform:open?'translateX(0)':'translateX(-100%)',height:'100vh',textAlign:'left',padding:'2rem',position:'absolute',top:0,left:0,transition:'transform 0.3s ease-in-out',justifyContent:'space-evenly'}}>

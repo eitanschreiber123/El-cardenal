@@ -13,4 +13,10 @@
 }
 @media(max-width:480px){
     .grid {grid-template-columns: repeat(2, 100px);}
+    .grid>div:nth-child(9) {
+        grid-column:1;
+    }
+    .grid>div:nth-child(10) {
+        grid-column:2;
+    }
 }
